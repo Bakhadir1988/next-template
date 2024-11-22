@@ -1,5 +1,8 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Button } from '@mantine/core';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import styles from './page.module.css';
 
 export default function Home() {
   return (
@@ -44,6 +47,10 @@ export default function Home() {
           >
             Read our docs
           </a>
+
+          <Button component={Link} href="/">
+            Next link button
+          </Button>
         </div>
       </main>
       <footer className={styles.footer}>
