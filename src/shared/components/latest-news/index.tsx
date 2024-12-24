@@ -11,27 +11,27 @@ export const LatestNews = ({ data }: { data: LatestNewsDto }) => {
     <section className={styles.root}>
       <div className="container">
         <h2>{data.title}</h2>
+        {data.content && (
+          <div dangerouslySetInnerHTML={{ __html: data.content }} />
+        )}
         <div className={styles.items}>
           {data.linked_sections.map((section) =>
             section.items.map((item) => (
-              <div className={styles.item}>
-                <Image
-                  src={
-                    item.img
-                      ? `${process.env.DOMAIN_URL}/resources/catalog/images/${item.img}`
-                      : noPhoto
-                  }
-                  alt={item.title}
-                  width={300}
-                  height={200}
-                />
+              <div key={item.id} className={styles.item}>
+                <div className={styles.image}>
+                  <Image
+                    src={
+                      item.img
+                        ? `https://dev.nmcms.ru/resources/catalog/images/${item.img}`
+                        : noPhoto
+                    }
+                    alt={item.title}
+                    width={345}
+                    height={200}
+                  />
+                </div>
                 <div className={styles.content}>
-                  <Link
-                    href={`${process.env.DOMAIN_URL}${item.url}`}
-                    key={item.id}
-                  >
-                    {item.title}
-                  </Link>
+                  <Link href={`/news/${item.manual_url}`}>{item.title}</Link>
                   {item.announce && (
                     <div dangerouslySetInnerHTML={{ __html: item.announce }} />
                   )}

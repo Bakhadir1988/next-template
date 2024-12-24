@@ -1,4 +1,6 @@
-import { api } from '@/shared/api';
+import Link from 'next/link';
+
+import { getData } from '@/shared/api';
 import { LatestNews } from '@/shared/components/latest-news';
 import { LatestNewsDto } from '@/shared/components/latest-news/type';
 
@@ -22,11 +24,17 @@ function blockRenderer(block: Block) {
 }
 
 export default async function Home() {
-  const data = await api('home-page');
+  const data = await getData('home-page');
 
-  if (!data.data.blocks) return <div>Блоки не найдены</div>;
+  if (!data.blocks) return <div>Блоки не найдены</div>;
 
   return (
-    <main>{data.data.blocks.map((block: Block) => blockRenderer(block))}</main>
+    <main>
+      <>
+        <Link href="/news">Новости</Link>
+        {data.blocks.map((block: Block) => blockRenderer(block))}
+      </>
+    </main>
   );
+  // return <h1>123</h1>;
 }

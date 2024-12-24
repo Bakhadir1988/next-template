@@ -22,15 +22,23 @@
   a {
     color: #000;
     text-decoration: none;
+    font-weight: 700;
   }
+}
+
+.image {
+  max-height: 200px;
+  border-radius: 20px;
 
   img {
+    // max-width: 100%;
+    // max-height: 200px;
+    // height: auto;
+    // object-fit: cover;
+    // width: 100%;
+    // aspect-ratio: 1;
     max-width: 100%;
-    max-height: 250px;
-    height: auto;
     object-fit: cover;
-    width: 100%;
-    aspect-ratio: 1;
     border-radius: 20px;
   }
 }

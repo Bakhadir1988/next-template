@@ -11,6 +11,6 @@ interface LatestNewsItems {
   id: string;
   title: string;
   announce?: string;
-  manual_url: string;
+  url: string;
   img: string;
 }
