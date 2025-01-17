@@ -8,11 +8,12 @@ import { NewsItem } from '@/views/news/types';
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string[] };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const data = await getData('news');
+  const { slug } = await params;
   const item: NewsItem = data.items.find(
-    (item: NewsItem) => item.manual_url === params.slug[0],
+    (item: NewsItem) => item.manual_url === slug[0],
   );
 
   return {
@@ -24,11 +25,12 @@ export async function generateMetadata({
 export default async function NewsSlug({
   params,
 }: {
-  params: { slug: string[] };
+  params: Promise<{ slug: string }>;
 }) {
   const data = await getData('news');
+  const { slug } = await params;
   const item: NewsItem = data.items.find(
-    (item: NewsItem) => item.manual_url === params.slug[0],
+    (item: NewsItem) => item.manual_url === slug[0],
   );
 
   return (
@@ -37,4 +39,3 @@ export default async function NewsSlug({
     </Suspense>
   );
 }
-//
