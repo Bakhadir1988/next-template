@@ -3,8 +3,10 @@ import path from 'path';
 
 const nextConfig: NextConfig = {
   sassOptions: {
-    includePaths: [path.dirname('styles')],
+    // includePaths: [path.dirname('styles')],
+    includePaths: [path.join(__dirname, 'src/shared/styles')],
     silenceDeprecations: ['legacy-js-api'],
+    // prependData: `@import "variables.scss"; @import "mixins.scss";`,
   },
 
   images: {

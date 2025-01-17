@@ -1,13 +1,7 @@
-// fonts
-:root {
-  --primary-font: 'Montserrat', sans-serif;
-}
-
 // colors
 :root {
   --white: #ffffff;
   --black: #000000;
-
   --primary: #7d3a3a;
   --secondary: #f4f1ed;
   --success: #b1c2ab;
@@ -36,8 +30,6 @@
 :root {
   --site-base-font-family: var(--primary-font);
   --site-base-font-weight: 400;
-  --site-base-font-size: clamp(16px, 2.2vw, 18px);
-  --site-base-line-height: 1.25;
   --site-base-text-color: var(--dark);
   --site-bg-color: var(--light);
 }

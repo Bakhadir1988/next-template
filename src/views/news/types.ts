@@ -1,14 +1,14 @@
-export interface NewsListDto {
-  section: NewsListSection;
-  items: NewsListItems[];
+export interface NewsDto {
+  section: NewsSection;
+  items: NewsItem[];
 }
 
-interface NewsListSection {
+interface NewsSection {
   title: string;
   manual_url: string;
 }
 
-export interface NewsListItems {
+export interface NewsItem {
   item_id: string;
   title: string;
   date: string;

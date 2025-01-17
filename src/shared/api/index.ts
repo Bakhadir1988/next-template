@@ -1,15 +1,12 @@
-export const getData = async (url: string) => {
-  const data = await fetch(`https://dev.nmcms.ru/api/${url}`, {
-    cache: 'force-cache',
+import { unstable_cache } from 'next/cache';
+
+export const getData = unstable_cache(async (url: string) => {
+  const data = await fetch(`${process.env.API_URL}/${url}`, {
+    headers: {
+      'Cache-Control': 'no-cache',
+      Pragma: 'no-cache',
+    },
   }).then((res) => res.json());
 
   return data;
-};
-
-export const fetchData = async (url: string) => {
-  const response = await fetch(`https://dev.nmcms.ru/api/${url}`, {
-    cache: 'force-cache',
-  });
-  const data = await response.json();
-  return data;
-};
+});

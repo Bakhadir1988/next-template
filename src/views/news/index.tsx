@@ -3,9 +3,9 @@ import Link from 'next/link';
 import React from 'react';
 
 import noPhoto from '../../../public/no-photo.jpg';
-import { NewsListDto } from './types';
+import { NewsDto } from './types';
 
-export const NewsPage = ({ data }: { data: NewsListDto }) => {
+export const NewsPage = ({ data }: { data: NewsDto }) => {
   return (
     <>
       <Link href="/">Главная</Link>
