@@ -22,7 +22,7 @@ export const LatestNews = ({ data }: { data: LatestNewsDto }) => {
                   <Image
                     src={
                       item.img
-                        ? `${process.env.IMAGE_URL}/${item.img}`
+                        ? `https://dev.nmcms.ru/resources/catalog/images/${item.img}`
                         : noPhoto
                     }
                     alt={item.title}
