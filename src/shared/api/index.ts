@@ -1,6 +1,4 @@
-import { unstable_cache } from 'next/cache';
-
-export const getData = unstable_cache(async (url: string) => {
+export const getData = async (url: string) => {
   const data = await fetch(`https://dev.nmcms.ru/api/${url}`, {
     headers: {
       'Cache-Control': 'no-cache',
@@ -9,4 +7,4 @@ export const getData = unstable_cache(async (url: string) => {
   }).then((res) => res.json());
 
   return data;
-});
+};
