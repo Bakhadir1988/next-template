@@ -12,6 +12,6 @@ jobs:
         with:
           node-version: '20.x.x'
           cash: npm
-      - run: nom ci
-      - run: nom run lint
-      - run: nom run lint:types
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run lint:types
