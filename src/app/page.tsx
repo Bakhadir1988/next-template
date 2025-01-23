@@ -36,5 +36,4 @@ export default async function Home() {
       </>
     </main>
   );
-  // return <h1>123</h1>;
 }
