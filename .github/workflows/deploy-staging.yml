@@ -17,6 +17,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run lint:types
+      - run: npm run test
   deploy:
     needs: lint
     runs-on: ubuntu-latest
@@ -32,4 +33,4 @@ jobs:
           user: ${{ secrets.STAGING_SSH_USERNAME }}
           private_key: ${{ secrets.STAGING_SSH_PRIVATE_KEY }}
           host_fingerprint: ${{ secrets.STAGING_SSH_FINGERPRINT }}
-          command: source ~/.nvm/nvm.sh; echo 'Hello world'
+          command: source ~/.nvm/nvm.sh; ~/deploy.sh
