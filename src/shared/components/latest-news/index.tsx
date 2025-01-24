@@ -10,7 +10,7 @@ export const LatestNews = ({ data }: { data: LatestNewsDto }) => {
   return (
     <section className={styles.root}>
       <div className="container">
-        <h2>{data.title}</h2>
+        <h2>Новые новости</h2>
         {data.content && (
           <div dangerouslySetInnerHTML={{ __html: data.content }} />
         )}
