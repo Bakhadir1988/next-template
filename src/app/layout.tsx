@@ -2,6 +2,8 @@ import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import '../../node_modules/normalize.css/normalize.css';
 import '../shared/styles/index.scss';
@@ -47,7 +49,10 @@ export default function RootLayout({
         <ColorSchemeScript defaultColorScheme="light" />
       </head>
       <body className={roboto.className}>
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider>
+          {children}
+          <ToastContainer />
+        </MantineProvider>
       </body>
     </html>
   );
