@@ -1,12 +1,10 @@
-import { FieldError } from 'react-hook-form';
-
-type RegisterProps = (event: React.ChangeEvent<HTMLInputElement>) => void;
+import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
 type FormInputProps = {
   label: string;
   id: string;
   type: string;
-  register: RegisterProps;
+  register: UseFormRegisterReturn;
   error?: FieldError | string;
 };
 
