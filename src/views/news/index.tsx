@@ -8,7 +8,7 @@ import { NewsDto } from './types';
 export const NewsPage = ({ data }: { data: NewsDto }) => {
   return (
     <>
-      <Link href="/">Главная</Link>
+      <Link href="/">Главная !!!</Link>
       <h2>{data.section.title}</h2>
       <div>
         {data.items.map((item) => (
