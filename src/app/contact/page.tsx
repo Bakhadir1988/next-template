@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ContactForm from '@/features/contact-form';
+import { DefaultForm } from '@/features/default-form';
 
 const Contact = () => {
-  return <ContactForm />;
+  return <DefaultForm />;
 };
 
 export default Contact;
