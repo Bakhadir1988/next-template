@@ -1,17 +1,20 @@
 // colors
 :root {
-  --white: #ffffff;
-  --black: #000000;
-  --primary: #7d3a3a;
-  --secondary: #f4f1ed;
-  --success: #b1c2ab;
-  --dark: #222131;
-  --light: #fdfcfb;
+  --primary: #d8a47a;
+  --error: #f44336;
+  --success: #4caf50;
+  --warning: #ff9800;
+
+  --text-primary: #222222;
+  --text-light: #ffffff;
+
+  --background-primary: var(--primary);
+  --background-dark: var(--text-primary);
 }
 
 // containers
 :root {
-  --content-width: 1440px;
+  --content-width: 1680px;
   --container-offset: clamp(20px, 2.6vw, 60px);
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
   --content-fluid-width: 1920px;
@@ -26,23 +29,6 @@
   --main-transition: 0.15s linear;
 }
 
-// site-base-options
-:root {
-  --site-base-font-family: var(--primary-font);
-  --site-base-font-weight: 400;
-  --site-base-text-color: var(--dark);
-  --site-bg-color: var(--light);
-}
-
-// scrollbar
-:root {
-  --scrollbar-color: var(--site-bg-color);
-  --scrollbar-width: 12px;
-  --scrollbar-border-radius: 0;
-  --scrollbar-thumb-color: var(--primary);
-  --scrollbar-thumb-border-radius: 0;
-}
-
 // offsets
 :root {
   --section-offset-vertical: clamp(40px, 4vw, 100px);
@@ -52,5 +38,5 @@
 
 // utils
 :root {
-  --main-border-radius: 10px;
+  --main-border-radius: 30px;
 }

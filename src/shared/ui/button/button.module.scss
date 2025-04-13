@@ -1,0 +1,115 @@
+@use 'mixins' as *;
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; // Расстояние между иконками и текстом
+  padding-inline: 20px;
+  height: 100%;
+  height: 41px;
+  font-weight: 500;
+  color: var(--text-primary);
+  @include fluid-text(18, 16);
+  cursor: pointer;
+  text-decoration: none; // Убираем подчеркивание для ссылок
+  transition: opacity var(--main-transition);
+  border: none;
+
+  &:hover:not(.disabled):not(.loading) {
+    opacity: 0.9;
+  }
+
+  &.disabled,
+  &[aria-disabled='true'] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.primary {
+  background-color: var(--primary);
+  color: var(--text-light);
+  border: none;
+}
+
+.outline {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.link {
+  background-color: transparent;
+  color: #007bff;
+  border: none;
+  padding: 0;
+}
+
+.danger {
+  background-color: var(--error);
+  color: var(--text-light);
+  border: none;
+}
+
+.loading {
+  position: relative;
+}
+
+.loading .spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--text-light);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.radius_none {
+  border-radius: 0;
+}
+
+.radius_sm {
+  border-radius: 4px;
+}
+
+.radius_md {
+  border-radius: 8px;
+}
+
+.radius_lg {
+  border-radius: 10px;
+}
+
+.radius_full {
+  border-radius: 9999px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sm {
+  height: 35px;
+  line-height: 1.1;
+}
+
+.lg {
+  height: 56px;
+  @include fluid-text(20, 14);
+}
+
+.icon {
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  &_left,
+  &_right {
+    display: flex;
+    align-items: center;
+  }
+}

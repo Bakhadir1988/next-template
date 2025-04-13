@@ -10,14 +10,14 @@ export const LatestNews = ({ data }: { data: LatestNewsDto }) => {
   return (
     <section className={styles.root}>
       <div className="container">
-        <h2>Новые новости</h2>
+        <h2>{data.title}</h2>
         {data.content && (
-          <div dangerouslySetInnerHTML={{ __html: data.content }} />
+          <span dangerouslySetInnerHTML={{ __html: data.content }} />
         )}
         <div className={styles.items}>
           {data.linked_sections.map((section) =>
             section.items.map((item) => (
-              <div key={item.id} className={styles.item}>
+              <div key={item.item_id} className={styles.item}>
                 <div className={styles.image}>
                   <Image
                     src={

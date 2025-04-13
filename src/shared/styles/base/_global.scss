@@ -25,11 +25,10 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  @include fluid-text(20, 16);
-  line-height: var(--site-base-line-height);
-  letter-spacing: var(--site-base-line-height);
-  color: var(--site-base-text-color);
-  overflow-x: hidden !important;
+  @include fluid-text(16, 15);
+  line-height: 1.2;
+  color: var(--text-primary);
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   scrollbar-gutter: stable;
 
@@ -77,4 +76,8 @@ address {
 picture,
 img {
   display: flex;
+}
+
+.base-section {
+  padding-block: 80px;
 }

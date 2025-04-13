@@ -50,7 +50,9 @@ export default function RootLayout({
       </head>
       <body className={roboto.className}>
         <MantineProvider>
+          <header>header</header>
           {children}
+          <footer>footer</footer>
           <ToastContainer />
         </MantineProvider>
       </body>
