@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const { optimize } = require('svgo');
+import fs from 'fs';
+import path from 'path';
+import { optimize } from 'svgo';
 
 const iconsDir = path.join(__dirname, '../shared/icons/svg'); // Папка с исходными SVG
 const outputDir = path.join(__dirname, '../shared/icons'); // Папка для выходных файлов
@@ -58,7 +58,7 @@ fs.readdir(iconsDir, async (err, files) => {
         import React from 'react';
 
         export const ${iconName.charAt(0).toUpperCase() + iconName.slice(1)}Icon = (props: React.SVGProps<SVGSVGElement>) => (
-          ${optimizedSvg.data.replace('<svg', '<svg {...props} {...(props.width ? { width: props.width } : { width: "40" })} {...(props.height ? { height: props.height } : { height: "40" })}' )}
+          ${optimizedSvg.data.replace('<svg', '<svg {...props} {...(props.width ? { width: props.width } : { width: "40" })} {...(props.height ? { height: props.height } : { height: "40" })}')}
         );
       `;
 
