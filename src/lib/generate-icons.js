@@ -40,7 +40,7 @@ fs.readdir(iconsDir, async (err, files) => {
               ],
             },
           },
-          // 'removeDimensions', // Удаление width и height
+          'removeDimensions', // Удаление width и height
           'removeUnusedNS', // Удаление неиспользуемых пространств имен
           'inlineStyles', // Инлайнинг стилей
           'convertStyleToAttrs', // Конвертация стилей в атрибуты
@@ -58,7 +58,7 @@ fs.readdir(iconsDir, async (err, files) => {
         import React from 'react';
 
         export const ${iconName.charAt(0).toUpperCase() + iconName.slice(1)}Icon = (props: React.SVGProps<SVGSVGElement>) => (
-          ${optimizedSvg.data.replace('<svg', '<svg {...props}' )}
+          ${optimizedSvg.data.replace('<svg', '<svg {...props} {...(props.width ? { width: props.width } : { width: "40" })} {...(props.height ? { height: props.height } : { height: "40" })}' )}
         );
       `;
 
