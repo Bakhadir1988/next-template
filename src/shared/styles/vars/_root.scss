@@ -29,10 +29,17 @@
   --main-transition: 0.15s linear;
 }
 
+// typography
+:root {
+  --base-line-height: 1.2;
+}
+
 // offsets
 :root {
-  --section-offset-vertical: clamp(40px, 4vw, 100px);
-  --grid-offset: clamp(16px, 3vw, 36px);
+  --section-offset-vertical: clamp(30px, 4vw, 80px);
+  --sm-offset: 16px;
+  --base-offset: calc(var(--sm-offset) * 2);
+  --clamp-offset: clamp(var(--sm-offset), 3vw, var(--base-offset));
   --main-offset: 40px;
 }
 

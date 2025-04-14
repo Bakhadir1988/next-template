@@ -43,13 +43,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: var(--clamp-offset);
 }
 
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: var(--sm-offset);
 
   button {
     flex-grow: 1;

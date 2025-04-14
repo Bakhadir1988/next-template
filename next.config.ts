@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
         hostname: 'dev.nmcms.ru',
         pathname: '/resources/catalog/images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'dev.nmcms.ru',
+        pathname: '/resources/catalog/files/**',
+      },
     ],
   },
 

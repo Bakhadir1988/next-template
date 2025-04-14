@@ -9,7 +9,7 @@ export type AdvantagesDto = {
 
 type AdvantagesItems = {
   title: string;
-  icon: string;
+  icon_svg: string;
   text: string;
   item_id: string;
 };

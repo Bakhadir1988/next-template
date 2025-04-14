@@ -8,26 +8,56 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../../node_modules/normalize.css/normalize.css';
 import '../shared/styles/index.scss';
 
-const roboto = localFont({
+// const roboto = localFont({
+//   src: [
+//     {
+//       path: './fonts/Roboto-Light.woff',
+//       weight: '300',
+//       style: 'normal',
+//     },
+//     {
+//       path: './fonts/Roboto-Regular.woff',
+//       weight: '400',
+//       style: 'normal',
+//     },
+//     {
+//       path: './fonts/Roboto-Medium.woff',
+//       weight: '500',
+//       style: 'normal',
+//     },
+//     {
+//       path: './fonts/Roboto-Bold.woff',
+//       weight: '700',
+//       style: 'normal',
+//     },
+//   ],
+// });
+
+const montserrat = localFont({
   src: [
     {
-      path: './fonts/Roboto-Light.woff',
+      path: './fonts/Montserrat-Light.woff2',
       weight: '300',
       style: 'normal',
     },
     {
-      path: './fonts/Roboto-Regular.woff',
+      path: './fonts/Montserrat-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: './fonts/Roboto-Medium.woff',
+      path: './fonts/Montserrat-Medium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: './fonts/Roboto-Bold.woff',
+      path: './fonts/Montserrat-Bold.woff2',
       weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Montserrat-ExtraBold.woff2',
+      weight: '800',
       style: 'normal',
     },
   ],
@@ -48,7 +78,7 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript defaultColorScheme="light" />
       </head>
-      <body className={roboto.className}>
+      <body className={montserrat.className}>
         <MantineProvider>
           <header>header</header>
           {children}
