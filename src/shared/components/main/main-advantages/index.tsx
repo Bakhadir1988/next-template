@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './advantages.module.scss';
 import { AdvantagesDto } from './type';
 
-export const Advantages = ({ data }: { data: AdvantagesDto }) => {
+export const MainAdvantages = ({ data }: { data: AdvantagesDto }) => {
   return (
     <section className={'base_section'}>
       <div className="container">

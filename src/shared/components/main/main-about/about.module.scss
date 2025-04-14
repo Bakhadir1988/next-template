@@ -1,0 +1,43 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(var(--sm-offset), 2vw, calc(var(--base-offset) * 2));
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--base-offset);
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--main-border-radius);
+      object-fit: contain;
+    }
+  }
+}
+
+.content {
+  p {
+    margin: 0;
+  }
+}
+
+.list {
+  --max-col-width: 280px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--max-col-width), 1fr));
+  gap: var(--clamp-offset);
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
