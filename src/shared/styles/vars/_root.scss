@@ -26,7 +26,7 @@
 
 // transitions
 :root {
-  --main-transition: 0.15s linear;
+  --main-transition: 0.3s linear;
 }
 
 // typography
@@ -36,7 +36,7 @@
 
 // offsets
 :root {
-  --section-offset-vertical: clamp(30px, 4vw, 80px);
+  --section-offset-vertical: clamp(30px, 4vw, 70px);
   --sm-offset: 16px;
   --base-offset: calc(var(--sm-offset) * 2);
   --clamp-offset: clamp(var(--sm-offset), 3vw, var(--base-offset));

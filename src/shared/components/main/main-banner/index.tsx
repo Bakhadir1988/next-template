@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 
 import { Button } from '@/shared/ui/button';
@@ -7,7 +8,7 @@ import { MainBannerDto } from './type';
 
 export const MainBanner = ({ data }: { data: MainBannerDto }) => {
   return (
-    <section>
+    <section className={clsx('base_section', styles.section)}>
       <div className="container">
         <div className={styles.list}>
           {data.linked_sections.map((section) =>

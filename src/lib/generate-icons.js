@@ -1,6 +1,12 @@
 import fs from 'fs';
 import path from 'path';
+// Для преобразования URL в путь
 import { optimize } from 'svgo';
+import { fileURLToPath } from 'url';
+
+// Преобразование import.meta.url в __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const iconsDir = path.join(__dirname, '../shared/icons/svg'); // Папка с исходными SVG
 const outputDir = path.join(__dirname, '../shared/icons'); // Папка для выходных файлов

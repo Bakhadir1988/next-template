@@ -120,17 +120,18 @@ img {
   }
 
   &_subtitle {
-    @include fluid-text(24, 18);
+    @include fluid-text(20, 18);
     font-weight: 700;
-    margin-bottom: var(--sm-offset);
-    padding-bottom: var(--sm-offset);
 
     &__separate {
       display: block;
       position: relative;
+      margin-bottom: var(--sm-offset);
+      padding-bottom: var(--sm-offset);
+
       &::after {
         position: absolute;
-        bottom: 0;
+        bottom: -2px;
         left: 0;
         content: '';
         width: 60px;
@@ -139,4 +140,16 @@ img {
       }
     }
   }
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  background: #cdcdcd;
+  width: 8px;
+  height: 8px;
+  opacity: 1;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--primary);
+  opacity: 1;
 }

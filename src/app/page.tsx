@@ -1,5 +1,10 @@
 import { getData } from '@/shared/api';
-import { MainAbout, MainAdvantages, MainBanner } from '@/shared/components';
+import {
+  LatestNews,
+  MainAbout,
+  MainAdvantages,
+  MainBanner,
+} from '@/shared/components';
 
 interface Block {
   manual_url: string;
@@ -17,6 +22,8 @@ function blockRenderer(block: Block) {
       return <MainAdvantages key={block.item_id} data={block} />;
     case 'main_about':
       return <MainAbout key={block.item_id} data={block} />;
+    case 'main_news':
+      return <LatestNews key={block.item_id} data={block} />;
     default:
       return null;
   }
