@@ -29,6 +29,9 @@ export const BaseSlider = <T,>({
   const paginationRef = useRef<HTMLDivElement>(null);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
+  // Проверка: нужно ли показывать элементы управления
+  const shouldShowControls = data.length > slidesPerView;
+
   useEffect(() => {
     if (swiperInstance) {
       if (
@@ -70,61 +73,62 @@ export const BaseSlider = <T,>({
         loop={loop}
         className={clsx(className, styles.root)}
         breakpoints={{
-          // Когда ширина экрана >= 0px
           0: {
-            slidesPerView: 1, // Показывать 1 слайд
-            spaceBetween: 10, // Уменьшить отступы
+            slidesPerView: 1,
+            spaceBetween: 10,
           },
-          // Когда ширина экрана >= 640px
           640: {
-            slidesPerView: 2, // Показывать 2 слайда
-            spaceBetween: 15, // Увеличить отступы
+            slidesPerView: 2,
+            spaceBetween: 15,
           },
-          // Когда ширина экрана >= 1024px
           1024: {
-            slidesPerView: 3, // Показывать 3 слайда
-            spaceBetween: 20, // Вернуть стандартные отступы
+            slidesPerView: 3,
+            spaceBetween: 20,
           },
-          // Когда ширина экрана >= 1280px
           1280: {
-            slidesPerView: 4, // Показывать 4 слайда
-            spaceBetween: 30, // Увеличить отступы
+            slidesPerView: 4,
+            spaceBetween: 30,
           },
         }}
       >
         {data.map((item, index) => (
-          <SwiperSlide key={index}>{renderItem(item)}</SwiperSlide>
+          <SwiperSlide className={styles.item} key={index}>
+            {renderItem(item)}
+          </SwiperSlide>
         ))}
       </Swiper>
 
-      <div className={styles.controls}>
-        <div
-          ref={paginationRef}
-          className={clsx('swiper-pagination', styles.pagination)}
-        ></div>
-        <div className={clsx('swiper-navigation', styles.navigation)}>
+      {/* Показываем элементы управления только если shouldShowControls === true */}
+      {shouldShowControls && (
+        <div className={styles.controls}>
           <div
-            ref={navigationPrevRef}
-            className={clsx(
-              'swiper-button-prev',
-              styles.button_prev,
-              styles.button,
-            )}
-          >
-            <SliderArrowIcon width={8} height={12} fill="#d8a47a" />
-          </div>
-          <div
-            ref={navigationNextRef}
-            className={clsx(
-              'swiper-button-next',
-              styles.button_next,
-              styles.button,
-            )}
-          >
-            <SliderArrowIcon width={8} height={12} fill="#d8a47a" />
+            ref={paginationRef}
+            className={clsx('swiper-pagination', styles.pagination)}
+          ></div>
+          <div className={clsx('swiper-navigation', styles.navigation)}>
+            <div
+              ref={navigationPrevRef}
+              className={clsx(
+                'swiper-button-prev',
+                styles.button_prev,
+                styles.button,
+              )}
+            >
+              <SliderArrowIcon width={8} height={12} fill="#d8a47a" />
+            </div>
+            <div
+              ref={navigationNextRef}
+              className={clsx(
+                'swiper-button-next',
+                styles.button_next,
+                styles.button,
+              )}
+            >
+              <SliderArrowIcon width={8} height={12} fill="#d8a47a" />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

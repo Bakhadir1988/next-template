@@ -4,6 +4,7 @@ import {
   MainAbout,
   MainAdvantages,
   MainBanner,
+  Services,
 } from '@/shared/components';
 
 interface Block {
@@ -24,6 +25,8 @@ function blockRenderer(block: Block) {
       return <MainAbout key={block.item_id} data={block} />;
     case 'main_news':
       return <LatestNews key={block.item_id} data={block} />;
+    case 'main_services':
+      return <Services key={block.item_id} data={block} />;
     default:
       return null;
   }

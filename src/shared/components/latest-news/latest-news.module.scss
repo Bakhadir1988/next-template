@@ -16,6 +16,7 @@
   &:hover {
     a {
       color: var(--primary);
+      transition: color var(--main-transition);
     }
   }
 
@@ -27,9 +28,6 @@
 }
 
 .image {
-  // max-height: 264px;
-  // border-radius: 20px;
-
   img {
     max-width: 100%;
     width: 100%;

@@ -34,6 +34,7 @@ export const LatestNews = ({ data }: { data: LatestNewsDto }) => {
               navigation
               pagination
               loop={false}
+              autoplay={false}
               renderItem={(item: LatestNewsItems) => (
                 <div className={styles.item} key={item.item_id}>
                   <div className={styles.image}>
