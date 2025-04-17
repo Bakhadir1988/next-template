@@ -18,6 +18,9 @@ export const BaseSlider = <T,>({
   data,
   renderItem,
   slidesPerView = 3,
+  slidesPerViewXs,
+  slidesPerViewSm,
+  slidesPerViewMd,
   spaceBetween = 20,
   navigation = true,
   pagination = true,
@@ -74,19 +77,19 @@ export const BaseSlider = <T,>({
         className={clsx(className, styles.root)}
         breakpoints={{
           0: {
-            slidesPerView: 1,
+            slidesPerView: slidesPerViewXs || 1,
             spaceBetween: 10,
           },
           640: {
-            slidesPerView: 2,
-            spaceBetween: 15,
+            slidesPerView: slidesPerViewSm || 2,
+            spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 3,
+            slidesPerView: slidesPerViewMd || 3,
             spaceBetween: 20,
           },
           1280: {
-            slidesPerView: 4,
+            slidesPerView: slidesPerView || 4,
             spaceBetween: 30,
           },
         }}

@@ -1,5 +1,6 @@
 import { getData } from '@/shared/api';
 import {
+  Clients,
   LatestNews,
   MainAbout,
   MainAdvantages,
@@ -27,6 +28,8 @@ function blockRenderer(block: Block) {
       return <LatestNews key={block.item_id} data={block} />;
     case 'main_services':
       return <Services key={block.item_id} data={block} />;
+    case 'main_clients':
+      return <Clients key={block.item_id} data={block} />;
     default:
       return null;
   }
