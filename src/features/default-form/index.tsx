@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { IMaskInput } from 'react-imask';
 
-import { SkeletonForm } from '@/shared/components/skeleton-form';
+import { SkeletonForm } from '@/shared/ui/skeleton-form';
 
 import { FormDto, FormItem } from './utils/formDataTypes';
 import getFormData from './utils/getFormData';
@@ -38,7 +38,6 @@ export const DefaultForm = () => {
     const fetchData = async () => {
       try {
         const data = await getFormData('https://dev.nmcms.ru/api/form-data');
-        console.log('Данные с сервера:', data);
         setFormData(data);
       } catch (err) {
         console.error('Ошибка загрузки данных:', err);
@@ -52,7 +51,6 @@ export const DefaultForm = () => {
   }, []);
 
   const onSubmit: SubmitHandler<FormDataValues> = async (data) => {
-    console.log('data', data);
     try {
       const formDataToSend = new FormData();
 

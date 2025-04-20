@@ -5,33 +5,11 @@ import localFont from 'next/font/local';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { Footer } from '@/widgets/footer';
+import { Header } from '@/widgets/header';
+
 import '../../node_modules/normalize.css/normalize.css';
 import '../shared/styles/index.scss';
-
-// const roboto = localFont({
-//   src: [
-//     {
-//       path: './fonts/Roboto-Light.woff',
-//       weight: '300',
-//       style: 'normal',
-//     },
-//     {
-//       path: './fonts/Roboto-Regular.woff',
-//       weight: '400',
-//       style: 'normal',
-//     },
-//     {
-//       path: './fonts/Roboto-Medium.woff',
-//       weight: '500',
-//       style: 'normal',
-//     },
-//     {
-//       path: './fonts/Roboto-Bold.woff',
-//       weight: '700',
-//       style: 'normal',
-//     },
-//   ],
-// });
 
 const montserrat = localFont({
   src: [
@@ -80,9 +58,9 @@ export default function RootLayout({
       </head>
       <body className={montserrat.className}>
         <MantineProvider>
-          <header>header</header>
+          <Header />
           {children}
-          <footer>footer</footer>
+          <Footer />
           <ToastContainer />
         </MantineProvider>
       </body>

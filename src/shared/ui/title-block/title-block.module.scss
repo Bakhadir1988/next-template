@@ -1,0 +1,14 @@
+.root {
+  background-color: #f9f9f9;
+  padding-block: var(--base-offset);
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sm-offset);
+}

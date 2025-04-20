@@ -1,14 +1,8 @@
-import { Metadata } from 'next';
+import { fetchNewsList } from '@/entities/news/model/services';
+import { NewsView } from '@/views/news';
 
-import { getData } from '@/shared/api';
-import { NewsPage } from '@/views/news';
+export default async function NewsPage() {
+  const data = await fetchNewsList();
 
-export const metadata: Metadata = {
-  title: 'Новости',
-  description: '...',
-};
-
-export default async function News() {
-  const data = await getData('news');
-  return <NewsPage data={data} />;
+  return <NewsView data={data} />;
 }

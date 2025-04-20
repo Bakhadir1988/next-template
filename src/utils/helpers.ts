@@ -19,3 +19,11 @@ export const normalizeInMain = (value: string | boolean): boolean => {
   }
   return Boolean(value);
 };
+
+export const formatDate = (date: Date, locale: string = 'ru-RU'): string => {
+  return new Intl.DateTimeFormat(locale, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(date);
+};

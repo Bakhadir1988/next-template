@@ -46,7 +46,8 @@ body {
 
 main {
   flex-grow: 1;
-  container: main / inline-size;
+  display: flex;
+  flex-direction: column;
 }
 
 footer {
@@ -152,4 +153,28 @@ img {
 .swiper-pagination .swiper-pagination-bullet-active {
   background: var(--primary);
   opacity: 1;
+}
+
+.swiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-slide {
+  width: auto; /* или фиксированное значение */
+  height: auto; /* или фиксированное значение */
+}
+
+.breadcrumbs {
+  a {
+    transition: opacity var(--main-transition);
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  span {
+    color: var(--primary);
+  }
 }

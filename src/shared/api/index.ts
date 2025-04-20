@@ -1,10 +1,16 @@
+// shared/api/index.ts
 export const getData = async (url: string) => {
-  const data = await fetch(`https://dev.nmcms.ru/api/${url}`, {
+  const res = await fetch(`https://dev.nmcms.ru/api/${url}`, {
     headers: {
       'Cache-Control': 'no-cache',
       Pragma: 'no-cache',
     },
-  }).then((res) => res.json());
+    next: { revalidate: 60 }, // или cache: 'no-store'
+  });
 
-  return data;
+  if (!res.ok) {
+    throw new Error(`Failed to fetch ${url}: ${res.status}`);
+  }
+
+  return res.json();
 };

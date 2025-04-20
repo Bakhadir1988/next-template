@@ -1,41 +1,38 @@
-import { Metadata } from 'next';
-import React, { Suspense } from 'react';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
-import { getData } from '@/shared/api';
-import { NewsDetail } from '@/shared/components/news-detail';
-import { NewsItem } from '@/views/news/types';
+import { fetchNewsBySlug } from '@/entities/news/model/services';
+import type { NewsItemDto } from '@/entities/news/model/types';
+import { NewsDetail } from '@/entities/news/ui/news-detail';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const data = await getData('news');
-  const { slug } = await params;
-  const item: NewsItem = data.items.find(
-    (item: NewsItem) => item.manual_url === slug[0],
-  );
+type Props = {
+  params: { slug: string[] };
+};
+
+// Генерация метаданных
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = params.slug[0];
+  const item = await fetchNewsBySlug(slug);
+
+  if (!item) {
+    return {
+      title: 'Новость не найдена',
+      description: 'Такой новости не существует.',
+    };
+  }
 
   return {
-    title: item?.title || 'News',
-    description: item?.announce || 'News description',
+    title: item.title,
+    description: item.announce ?? '',
   };
 }
 
-export default async function NewsSlug({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const data = await getData('news');
-  const { slug } = await params;
-  const item: NewsItem = data.items.find(
-    (item: NewsItem) => item.manual_url === slug[0],
-  );
+// Рендер детальной страницы новости
+export default async function NewsDetailPage({ params }: Props) {
+  const slug = params.slug[0];
+  const item: NewsItemDto | null = await fetchNewsBySlug(slug);
 
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <NewsDetail item={item} />
-    </Suspense>
-  );
+  if (!item) return notFound();
+
+  return <NewsDetail data={item} />;
 }

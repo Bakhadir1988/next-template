@@ -1,7 +1,10 @@
+'use client';
+
 import clsx from 'clsx';
 import React from 'react';
 
-import { Button } from '@/shared/ui/button';
+import { DefaultForm } from '@/features/default-form';
+import { UiModal } from '@/shared/ui/modal';
 
 import styles from './main-banner.module.scss';
 import { MainBannerDto } from './type';
@@ -11,8 +14,8 @@ export const MainBanner = ({ data }: { data: MainBannerDto }) => {
     <section className={clsx('base_section', styles.section)}>
       <div className="container">
         <div className={styles.list}>
-          {data.linked_sections.map((section) =>
-            section.items.map((item) => (
+          {data.linked_sections?.map((section) =>
+            section.items?.map((item) => (
               <div
                 className={styles.list_item}
                 style={{
@@ -26,21 +29,17 @@ export const MainBanner = ({ data }: { data: MainBannerDto }) => {
                     dangerouslySetInnerHTML={{
                       __html: item.text,
                     }}
-                  ></div>
+                  />
                   {item.buttons && (
                     <div className={styles.buttons}>
-                      {item.buttons.map((button) => {
-                        return (
-                          <Button
-                            variant="primary"
-                            radius="lg"
-                            size="lg"
-                            key={button.subitem_id}
-                          >
-                            {button.variant_title}
-                          </Button>
-                        );
-                      })}
+                      {item.buttons.map((button) => (
+                        <UiModal
+                          key={button.subitem_id}
+                          text={button.variant_title}
+                        >
+                          <DefaultForm />
+                        </UiModal>
+                      ))}
                     </div>
                   )}
                 </div>

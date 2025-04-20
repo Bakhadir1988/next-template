@@ -1,38 +1,39 @@
-import Image from 'next/image';
+'use client';
+
+import { Breadcrumbs } from '@mantine/core';
 import Link from 'next/link';
-import React from 'react';
 
-import noPhoto from '../../../public/no-photo.jpg';
-import { NewsDto } from './types';
+import type { NewsDto } from '@/entities/news/model/types';
+import { useNews } from '@/entities/news/model/useNews';
+import TittleBlock from '@/shared/ui/title-block';
+import { NewsList } from '@/widgets/news-list';
 
-export const NewsPage = ({ data }: { data: NewsDto }) => {
+type Props = {
+  data?: NewsDto;
+};
+
+export const NewsView = ({ data }: Props) => {
+  const { news, isLoading } = useNews({ initialData: data });
+
+  if (isLoading) return <div>Загрузка новостей...</div>;
+
   return (
-    <>
-      <Link href="/">Главная !!!</Link>
-      <h2>{data.section.title}</h2>
-      <div>
-        {data.items.map((item) => (
-          <div key={item.item_id}>
-            <div>
-              <Image
-                src={
-                  item.img
-                    ? `https://dev.nmcms.ru/resources/catalog/images/${item.img}`
-                    : noPhoto
-                }
-                alt={item.title}
-                width={345}
-                height={200}
-              />
-            </div>
-            <Link href={`/news/${item.manual_url}/`}>{item.title}</Link>
-            <p>{item.date}</p>
-            {item.announce && (
-              <div dangerouslySetInnerHTML={{ __html: item.announce }} />
-            )}
-          </div>
-        ))}
-      </div>
-    </>
+    <main>
+      <TittleBlock title={news?.section.title}>
+        <Breadcrumbs className="breadcrumbs">
+          {news?.section.__path.map((item, index) => {
+            const isLast = index === news.section.__path.length - 1;
+            return isLast ? (
+              <span key={item.item_id}>{item.title}</span>
+            ) : (
+              <Link key={item.item_id} href={item.url}>
+                {item.title}
+              </Link>
+            );
+          })}
+        </Breadcrumbs>
+      </TittleBlock>
+      <NewsList data={news?.items} />
+    </main>
   );
 };

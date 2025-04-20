@@ -43,7 +43,7 @@ export const Services = ({ data }: { data: ServicesDto }) => {
                 autoplay={false}
                 renderItem={(item: ServicesItems) => (
                   <Link
-                    href={`/news/${item.manual_url}`}
+                    href={`${item.manual_url}`}
                     className={styles.item}
                     key={item.item_id}
                   >
@@ -54,6 +54,7 @@ export const Services = ({ data }: { data: ServicesDto }) => {
                           alt={item.title}
                           width={400}
                           height={300}
+                          sizes="(max-width: 768px) 100vw, 50vw"
                         />
                       </div>
                     )}

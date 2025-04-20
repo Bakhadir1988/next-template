@@ -1,35 +1,35 @@
 import { getData } from '@/shared/api';
-import {
-  Clients,
-  LatestNews,
-  MainAbout,
-  MainAdvantages,
-  MainBanner,
-  Services,
-} from '@/shared/components';
+// import {
+//   Advantages,
+//   Clients,
+//   MainAbout,
+//   MainBanner,
+//   Services,
+// } from '@/shared/components';
+import { LatestNews } from '@/widgets';
 
-interface Block {
+type Block = {
   manual_url: string;
   item_id: number;
   title: string;
   items_count?: string;
   linked_sections: [];
-}
+};
 
 function blockRenderer(block: Block) {
   switch (block.manual_url) {
-    case 'main_banner':
-      return <MainBanner key={block.item_id} data={block} />;
-    case 'main_advantages':
-      return <MainAdvantages key={block.item_id} data={block} />;
-    case 'main_about':
-      return <MainAbout key={block.item_id} data={block} />;
+    // case 'main_banner':
+    //   return <MainBanner key={block.item_id} data={block} />;
+    // case 'main_advantages':
+    //   return <Advantages key={block.item_id} data={block} />;
+    // case 'main_about':
+    //   return <MainAbout key={block.item_id} data={block} />;
     case 'main_news':
       return <LatestNews key={block.item_id} data={block} />;
-    case 'main_services':
-      return <Services key={block.item_id} data={block} />;
-    case 'main_clients':
-      return <Clients key={block.item_id} data={block} />;
+    // case 'main_services':
+    //   return <Services key={block.item_id} data={block} />;
+    // case 'main_clients':
+    //   return <Clients key={block.item_id} data={block} />;
     default:
       return null;
   }

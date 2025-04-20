@@ -6,14 +6,18 @@ export type LatestNewsDto = {
     section: {
       item_id: string;
     };
-    items: LatestNewsItems[];
+    items: LatestNewsItemsDto[];
   }[];
 };
 
-export type LatestNewsItems = {
+export type LatestNewsItemsDto = {
   item_id: string;
   title: string;
+  date: string;
+  img?: string;
   announce?: string;
+  text?: string;
+  content?: string;
   manual_url: string;
-  img: string;
+  url: string;
 };
