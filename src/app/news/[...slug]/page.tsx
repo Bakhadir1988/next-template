@@ -6,13 +6,13 @@ import type { NewsItemDto } from '@/entities/news/model/types';
 import { NewsDetail } from '@/entities/news/ui/news-detail';
 
 type Props = {
-  params: { slug: string[] };
+  params: Promise<{ slug: string[] }>;
 };
 
 // Генерация метаданных
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.slug[0];
-  const item = await fetchNewsBySlug(slug);
+  const { slug } = await params;
+  const item = await fetchNewsBySlug(slug[0]);
 
   if (!item) {
     return {
@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // Рендер детальной страницы новости
 export default async function NewsDetailPage({ params }: Props) {
-  const slug = params.slug[0];
-  const item: NewsItemDto | null = await fetchNewsBySlug(slug);
+  const { slug } = await params;
+  const item: NewsItemDto | null = await fetchNewsBySlug(slug[0]);
 
   if (!item) return notFound();
 
