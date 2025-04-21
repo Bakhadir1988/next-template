@@ -1,22 +1,22 @@
 @use 'mixins' as *;
 
 h1 {
-  @include fluid-text(56, 28);
+  @include fluid-text(48, 28);
   margin-top: 0;
 }
 
 h2 {
-  @include fluid-text(48, 24);
+  @include fluid-text(42, 24);
   margin-top: 0;
 }
 
 h3 {
-  @include fluid-text(40, 20);
+  @include fluid-text(34, 20);
   margin-top: 0;
 }
 
 h4 {
-  @include fluid-text(32, 18);
+  @include fluid-text(26, 18);
   margin-top: 0;
 }
 

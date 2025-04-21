@@ -1,9 +1,37 @@
+import { Breadcrumbs } from '@mantine/core';
+import Link from 'next/link';
 import React from 'react';
 
-import { NewsItemDto } from '../../model';
-import styles from './news-detail.module.scss';
+import { NewsItemDto, NewsSectionDto } from '@/entities/news/model/types';
+import TitleBlock from '@/shared/ui/title-block';
 
-export const NewsDetail = ({ data }: { data: NewsItemDto }) => {
-  console.log('dataDetail', data);
-  return <section className={styles.root}>NewsDetailPage</section>;
+type Props = { data: NewsItemDto; path: NewsSectionDto };
+
+export const NewsDetail = ({ data, path }: Props) => {
+  return (
+    <>
+      <TitleBlock title={data.title}>
+        <Breadcrumbs className="breadcrumbs">
+          {path?.__path.map((item, index) => {
+            const isLast = index === path?.__path.length - 1;
+            return isLast ? (
+              <span key={item.item_id}>{item.title}</span>
+            ) : (
+              <Link key={item.item_id} href={item.url}>
+                {item.title}
+              </Link>
+            );
+          })}
+        </Breadcrumbs>
+      </TitleBlock>
+      <section className="base_section">
+        <div
+          className="container"
+          dangerouslySetInnerHTML={{
+            __html: data?.text || '',
+          }}
+        />
+      </section>
+    </>
+  );
 };

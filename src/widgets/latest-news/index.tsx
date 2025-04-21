@@ -1,26 +1,45 @@
 'use client';
 
-import React from 'react';
-
 import { NewsItem } from '@/shared/components';
 import { BaseSlider } from '@/shared/ui/base-slider';
 
 import { LatestNewsDto, LatestNewsItemsDto } from './type';
 
-export const LatestNews = ({ data }: { data: LatestNewsDto }) => {
+type Props = {
+  data?: LatestNewsDto;
+  items?: LatestNewsItemsDto[];
+  excludeId?: string;
+};
+
+export const LatestNews = ({ data, items, excludeId }: Props) => {
+  const title = data?.title ?? 'Похожие новости';
+  const content = data?.content ?? null;
+
+  // Определяем источник данных: либо linked_sections, либо items
+  const sections = data?.linked_sections ?? [
+    {
+      section: { item_id: 1 },
+      items: items ?? [],
+    },
+  ];
+
   return (
-    <section className={'base_section'}>
+    <section className="base_section">
       <div className="container">
         <div className="base_title">
-          <h2>{data.title}</h2>
-          {data.content && (
-            <span dangerouslySetInnerHTML={{ __html: data.content }} />
-          )}
+          <h2>{title}</h2>
+          {content && <span dangerouslySetInnerHTML={{ __html: content }} />}
         </div>
-        {data.linked_sections.map((section) => (
-          <React.Fragment key={section.section.item_id}>
+
+        {sections.map((section) => {
+          const filteredItems = section.items.filter(
+            (item) => item.item_id !== excludeId,
+          );
+
+          return (
             <BaseSlider
-              data={section.items}
+              key={section.section.item_id}
+              data={filteredItems}
               slidesPerView={4}
               spaceBetween={32}
               navigation
@@ -31,8 +50,8 @@ export const LatestNews = ({ data }: { data: LatestNewsDto }) => {
                 <NewsItem key={item.item_id} data={item} />
               )}
             />
-          </React.Fragment>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

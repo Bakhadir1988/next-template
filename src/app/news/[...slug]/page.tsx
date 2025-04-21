@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { fetchNewsBySlug } from '@/entities/news/model/services';
+import { fetchNewsBySlug, fetchNewsList } from '@/entities/news/model/services';
 import type { NewsItemDto } from '@/entities/news/model/types';
-import { NewsDetail } from '@/entities/news/ui/news-detail';
+import { NewsDetailView } from '@/views/news-detail/ui/news-detail';
 
 type Props = {
   params: Promise<{ slug: string[] }>;
@@ -27,12 +27,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// Рендер детальной страницы новости
 export default async function NewsDetailPage({ params }: Props) {
   const { slug } = await params;
   const item: NewsItemDto | null = await fetchNewsBySlug(slug[0]);
+  const relatedNews = await fetchNewsList();
+  const path = relatedNews?.section;
 
   if (!item) return notFound();
 
-  return <NewsDetail data={item} />;
+  return (
+    <NewsDetailView
+      data={item}
+      path={path}
+      relatedNews={relatedNews.items.slice(0, 5)}
+    />
+  );
 }

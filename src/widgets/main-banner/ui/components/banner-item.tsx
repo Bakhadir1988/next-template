@@ -11,7 +11,6 @@ type BannerItemProps = {
 };
 
 export const BannerItem = ({ item }: BannerItemProps) => {
-  console.log('item', item);
   return (
     <div
       className={styles.item}
