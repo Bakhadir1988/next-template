@@ -13,32 +13,21 @@ import '../shared/styles/index.scss';
 
 const montserrat = localFont({
   src: [
-    {
-      path: './fonts/Montserrat-Light.woff2',
-      weight: '300',
-      style: 'normal',
-    },
+    { path: './fonts/Montserrat-Light.woff2', weight: '300', style: 'normal' },
     {
       path: './fonts/Montserrat-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
-    {
-      path: './fonts/Montserrat-Medium.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Montserrat-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
+    { path: './fonts/Montserrat-Medium.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/Montserrat-Bold.woff2', weight: '700', style: 'normal' },
     {
       path: './fonts/Montserrat-ExtraBold.woff2',
       weight: '800',
       style: 'normal',
     },
   ],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {

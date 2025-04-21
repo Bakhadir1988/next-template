@@ -1,9 +1,12 @@
 import { Breadcrumbs } from '@mantine/core';
+import clsx from 'clsx';
 import Link from 'next/link';
 import React from 'react';
 
 import { NewsItemDto, NewsSectionDto } from '@/entities/news/model/types';
 import TitleBlock from '@/shared/ui/title-block';
+
+import styles from './news-detail.module.scss';
 
 type Props = { data: NewsItemDto; path: NewsSectionDto };
 
@@ -24,7 +27,7 @@ export const NewsDetail = ({ data, path }: Props) => {
           })}
         </Breadcrumbs>
       </TitleBlock>
-      <section className="base_section">
+      <section className={clsx('base_section', styles.detail)}>
         <div
           className="container"
           dangerouslySetInnerHTML={{

@@ -7,9 +7,11 @@
 
   --text-primary: #222222;
   --text-light: #ffffff;
+  --text-gray: #555;
 
   --background-primary: var(--primary);
   --background-dark: var(--text-primary);
+  --background-light: #f9f9f9;
 }
 
 // containers
@@ -36,7 +38,7 @@
 
 // offsets
 :root {
-  --section-offset-vertical: clamp(30px, 4vw, 70px);
+  --section-offset-vertical: clamp(20px, 4vw, 40px);
   --sm-offset: 16px;
   --base-offset: calc(var(--sm-offset) * 2);
   --clamp-offset: clamp(var(--sm-offset), 3vw, var(--base-offset));
@@ -45,5 +47,5 @@
 
 // utils
 :root {
-  --main-border-radius: 30px;
+  --main-border-radius: 20px;
 }

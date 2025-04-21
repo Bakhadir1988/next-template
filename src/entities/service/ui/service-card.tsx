@@ -19,9 +19,7 @@ export const ServiceCard = ({ item }: { item: ServicesItem }) => {
           <Image
             src={`https://dev.nmcms.ru/resources/catalog/images/${item.announce.image}`}
             alt={item.title}
-            width={400}
-            height={300}
-            sizes="(max-width: 768px) 100vw, 50vw"
+            fill
           />
         </div>
       )}
@@ -43,10 +41,10 @@ export const ServiceCard = ({ item }: { item: ServicesItem }) => {
         )}
         {item.price && (
           <div className={styles.price}>
-            от
+            от{' '}
             <span className="base_subtitle">
               {formatPrice(item.price.toString())}
-            </span>
+            </span>{' '}
             руб.
           </div>
         )}
