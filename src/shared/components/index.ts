@@ -3,7 +3,6 @@
 export { MainBanner } from '../../widgets/main-banner';
 export { Advantages } from './advantages';
 export { MainAbout } from '../../widgets/main-about';
-export { Services } from './services';
 export { Clients } from './clients';
 export { Header } from '../../widgets/header';
 export { Footer } from '../../widgets/footer';

@@ -1,9 +1,5 @@
 @use 'mixins' as *;
 
-.root {
-  position: relative;
-}
-
 .item {
   display: flex;
   flex-direction: column;

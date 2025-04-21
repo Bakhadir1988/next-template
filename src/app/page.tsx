@@ -1,12 +1,5 @@
 import { getData } from '@/shared/api';
-// import {
-//   Advantages,
-//   Clients,
-//   MainAbout,
-//   MainBanner,
-//   Services,
-// } from '@/shared/components';
-import { LatestNews } from '@/widgets';
+import { LatestNews, MainBanner, Services } from '@/widgets';
 
 type Block = {
   manual_url: string;
@@ -18,16 +11,16 @@ type Block = {
 
 function blockRenderer(block: Block) {
   switch (block.manual_url) {
-    // case 'main_banner':
-    //   return <MainBanner key={block.item_id} data={block} />;
+    case 'main_banner':
+      return <MainBanner key={block.item_id} data={block} />;
     // case 'main_advantages':
     //   return <Advantages key={block.item_id} data={block} />;
     // case 'main_about':
     //   return <MainAbout key={block.item_id} data={block} />;
     case 'main_news':
       return <LatestNews key={block.item_id} data={block} />;
-    // case 'main_services':
-    //   return <Services key={block.item_id} data={block} />;
+    case 'main_services':
+      return <Services key={block.item_id} data={block} />;
     // case 'main_clients':
     //   return <Clients key={block.item_id} data={block} />;
     default:

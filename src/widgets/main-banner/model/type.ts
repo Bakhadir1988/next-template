@@ -3,11 +3,11 @@ export type MainBannerDto = {
   content?: string;
   items_count?: string;
   linked_sections: {
-    items: MainBannerItems[];
+    items: MainBannerItem[];
   }[];
 };
 
-type MainBannerItems = {
+export type MainBannerItem = {
   buttons: MainBannerItemButtons[];
   title: string;
   image: string;
@@ -16,7 +16,7 @@ type MainBannerItems = {
   item_id: string;
 };
 
-type MainBannerItemButtons = {
+export type MainBannerItemButtons = {
   subitem_id: string;
   variant_title: string;
   url: string;
