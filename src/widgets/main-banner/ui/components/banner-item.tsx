@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 import { DefaultForm } from '@/features/default-form';
@@ -14,11 +15,18 @@ export const BannerItem = ({ item }: BannerItemProps) => {
   return (
     <div
       className={styles.item}
-      style={{
-        backgroundImage: `url(https://dev.nmcms.ru/resources/catalog/images/${item.image})`,
-      }}
+      // style={{
+      //   backgroundImage: `url(https://dev.nmcms.ru/resources/catalog/images/${item.image})`,
+      // }}
       key={item.item_id}
     >
+      <Image
+        src={`https://dev.nmcms.ru/resources/catalog/images/${item.image}`}
+        alt={item.title}
+        layout="fill"
+        objectFit="cover"
+        fill={true}
+      />
       <div className={styles.inner}>
         <h1>{item.title}</h1>
         <div
