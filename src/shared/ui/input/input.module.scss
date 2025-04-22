@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.label {
+  font-size: 0.9rem;
+}
+.input {
+  padding: 10px;
+  border: 2px solid var(--primary);
+  border-radius: 6px;
+}
+.error {
+  color: red;
+  font-size: 0.75rem;
+}
