@@ -1,9 +1,18 @@
 import React from 'react';
 
-import { DefaultForm } from '@/features/default-form';
+import { equipmentTabs } from '@/features/universalTabs/lib/equipmentData';
+import { UniversalTabs } from '@/features/universalTabs/ui/UniversalTabs/UniversalTabs';
+import { EquipmentSection } from '@/widgets/equipment-section/equipment-section';
 
 const Contact = () => {
-  return <DefaultForm />;
+  return (
+    <>
+      <EquipmentSection />
+      <div className="container">
+        <UniversalTabs tabs={equipmentTabs} orientation="vertical" />
+      </div>
+    </>
+  );
 };
 
 export default Contact;

@@ -1,39 +1,91 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(var(--sm-offset), 2vw, calc(var(--base-offset) * 2));
+  grid-template-columns: 1fr 600px;
+  gap: var(--clamp-offset);
+
+  @media screen and (max-width: 1280px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: 1080px) {
+    grid-template-columns: 1fr;
+  }
 
   &__item {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: var(--base-offset);
+    min-height: 500px;
+
+    color: var(--text-white);
+    border-radius: var(--main-border-radius-bg);
+    position: relative;
+
+    @media screen and (max-width: 1080px) {
+      min-height: auto;
+    }
 
     img {
       max-width: 100%;
       width: 100%;
-      height: auto;
-      border-radius: var(--main-border-radius);
-      object-fit: contain;
+      height: 100%;
+      border-radius: var(--main-border-radius-bg);
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--clamp-offset);
+    background-color: var(--primary);
+
+    @media screen and (max-width: 1080px) {
+      order: 1;
     }
   }
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--clamp-offset);
   p {
-    margin: 0;
+    &:last-child {
+      margin: 0;
+    }
   }
 }
 
 .list {
-  --max-col-width: 280px;
+  --max-col-width: 260px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--max-col-width), 1fr));
-  gap: var(--clamp-offset);
+  gap: var(--sm-offset);
 
   &__item {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-light);
+    padding: var(--base-offset);
+    border-radius: var(--main-border-radius);
+  }
+}
+
+.subtitle {
+  font-size: 32px;
+  color: var(--primary-accent);
+  width: 100%;
+  text-align: center;
+
+  &::after {
+    right: 0;
+    margin-inline: auto;
+    background-color: var(--primary-accent);
   }
 }
 

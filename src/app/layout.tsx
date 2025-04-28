@@ -11,19 +11,41 @@ import { Header } from '@/widgets/header';
 import '../../node_modules/normalize.css/normalize.css';
 import '../shared/styles/index.scss';
 
-const montserrat = localFont({
+const manrope = localFont({
   src: [
-    { path: './fonts/Montserrat-Light.woff2', weight: '300', style: 'normal' },
     {
-      path: './fonts/Montserrat-Regular.woff2',
+      path: './fonts/Manrope/Manrope-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
-    { path: './fonts/Montserrat-Medium.woff2', weight: '500', style: 'normal' },
-    { path: './fonts/Montserrat-Bold.woff2', weight: '700', style: 'normal' },
     {
-      path: './fonts/Montserrat-ExtraBold.woff2',
+      path: './fonts/Manrope/Manrope-Medium.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Manrope/Manrope-SemiBold.woff2',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Manrope/Manrope-Bold.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Manrope/Manrope-ExtraBold.woff2',
       weight: '800',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Manrope/Manrope-ExtraLight.woff2',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Manrope/Manrope-Light.woff2',
+      weight: '300',
       style: 'normal',
     },
   ],
@@ -45,7 +67,7 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript defaultColorScheme="light" />
       </head>
-      <body className={montserrat.className}>
+      <body className={manrope.className}>
         <MantineProvider>
           <Header />
           {children}

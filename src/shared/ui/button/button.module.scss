@@ -5,16 +5,16 @@
   align-items: center;
   justify-content: center;
   gap: 8px; // Расстояние между иконками и текстом
-  padding-inline: 20px;
+  padding-inline: 1.5rem;
   height: 100%;
-  height: 41px;
+  height: 43px;
   font-weight: 500;
   color: var(--text-primary);
-  @include fluid-text(18, 16);
+  @include fluid-text(16, 14);
   cursor: pointer;
   text-decoration: none; // Убираем подчеркивание для ссылок
   transition: opacity var(--main-transition);
-  border: none;
+  border-radius: 6px;
 
   &:hover:not(.disabled):not(.loading) {
     opacity: 0.9;

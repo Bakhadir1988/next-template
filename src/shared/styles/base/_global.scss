@@ -25,7 +25,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  @include fluid-text(16, 15);
+  @include fluid-text(16, 14);
   line-height: var(--base-line-height);
   color: var(--text-primary);
   overflow-x: hidden;
@@ -79,6 +79,12 @@ img {
   display: flex;
 }
 
+p {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .base {
   &_section {
     padding-block: var(--section-offset-vertical);
@@ -87,24 +93,25 @@ img {
   &_title {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    gap: var(--clamp-offset);
+    gap: var(--sm-offset);
     position: relative;
-    margin-bottom: clamp(var(--base-offset), 4vw, calc(var(--base-offset) * 2));
-    padding-bottom: var(--base-offset);
+    margin-bottom: var(--clamp-offset);
+    align-items: flex-start;
 
-    &::after {
-      position: absolute;
-      bottom: -2px;
-      left: 50%;
-      content: '';
-      transform: translateX(-50%);
-      width: 160px;
-      max-width: 30vw;
-      height: 4px;
-      background-color: var(--primary);
+    &__separate {
+      padding-bottom: var(--base-offset);
+      &::after {
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        content: '';
+        transform: translateX(-50%);
+        width: 160px;
+        max-width: 30vw;
+        height: 4px;
+        background-color: var(--primary);
+      }
     }
 
     h2 {
@@ -127,16 +134,16 @@ img {
     &__separate {
       display: block;
       position: relative;
-      margin-bottom: var(--sm-offset);
-      padding-bottom: var(--sm-offset);
+      margin-bottom: 10px;
+      padding-bottom: 10px;
 
       &::after {
         position: absolute;
         bottom: -2px;
         left: 0;
         content: '';
-        width: 60px;
-        height: 4px;
+        width: 100px;
+        height: 2px;
         background-color: var(--primary);
       }
     }
@@ -155,16 +162,6 @@ img {
   opacity: 1;
 }
 
-.swiper {
-  width: 100%;
-  height: auto;
-}
-
-.swiper-slide {
-  width: auto; /* или фиксированное значение */
-  height: auto; /* или фиксированное значение */
-}
-
 .breadcrumbs {
   a {
     transition: opacity var(--main-transition);
@@ -177,4 +174,8 @@ img {
   span {
     color: var(--primary);
   }
+}
+
+.t-center {
+  text-align: center;
 }

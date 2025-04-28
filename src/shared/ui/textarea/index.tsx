@@ -16,7 +16,6 @@ export const Textarea = ({
   shouldShowError,
   ...props
 }: UiTextareaProps) => {
-  console.log('error', shouldShowError);
   return (
     <div className={styles.wrapper}>
       {label && <label className={styles.label}>{label}</label>}
