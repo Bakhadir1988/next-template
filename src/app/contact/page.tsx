@@ -2,7 +2,7 @@ import React from 'react';
 
 import { equipmentTabs } from '@/features/universalTabs/lib/equipmentData';
 import { UniversalTabs } from '@/features/universalTabs/ui/UniversalTabs/UniversalTabs';
-import { EquipmentSection } from '@/widgets/equipment-section/equipment-section';
+import { EquipmentSection } from '@/widgets/accordion-widget/ul/accordion-widget';
 
 const Contact = () => {
   return (

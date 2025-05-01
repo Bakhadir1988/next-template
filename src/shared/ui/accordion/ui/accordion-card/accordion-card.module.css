@@ -45,7 +45,7 @@
   align-items: flex-start;
   padding-inline: var(--base-offset);
   gap: var(--sm-offset);
-  overflow: hidden; /* добавляем! Чтобы clip-path корректно скрывал */
+  overflow: hidden;
 
   p {
     margin: 0;
@@ -82,5 +82,4 @@
 
 .inactive {
   flex: 0;
-  /* border: 1px solid var(--primary); */
 }

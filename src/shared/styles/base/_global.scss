@@ -118,17 +118,13 @@ p {
       margin: 0;
     }
 
-    div {
-      padding-inline: clamp(0px, 10vw, 100px);
-    }
-
     p {
       margin: 0;
     }
   }
 
   &_subtitle {
-    @include fluid-text(20, 18);
+    @include fluid-text(22, 18);
     font-weight: 700;
 
     &__separate {

@@ -1,3 +1,4 @@
 export { LatestNews } from './latest-news';
 export { MainBanner } from './main-banner';
-export { Services } from './services';
+export { ServicesWidget } from './services-widget';
+export { MainAbout } from './main-about';

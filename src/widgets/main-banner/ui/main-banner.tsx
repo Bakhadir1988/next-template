@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import React from 'react';
 
 import { MainBannerDto } from '../model/type';
@@ -9,7 +8,7 @@ import styles from './main-banner.module.scss';
 
 export const MainBanner = ({ data }: { data: MainBannerDto }) => {
   return (
-    <section className={clsx('base_section', styles.section)}>
+    <section className={styles.section}>
       <div className="container">
         <div className={styles.list}>
           {data.linked_sections?.map((section) =>

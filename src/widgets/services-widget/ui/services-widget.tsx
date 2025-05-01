@@ -6,7 +6,7 @@ import { ServiceCard, ServicesDto } from '@/entities/service';
 import { BaseSlider } from '@/shared/ui/base-slider';
 import { normalizeInMain } from '@/utils/helpers';
 
-export const Services = ({ data }: { data: ServicesDto }) => {
+export const ServicesWidget = ({ data }: { data: ServicesDto }) => {
   return (
     <section className={'base_section'}>
       <div className="container">

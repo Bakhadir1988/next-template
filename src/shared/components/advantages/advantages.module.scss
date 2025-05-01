@@ -1,8 +1,9 @@
 .list {
-  --max-col-width: 200px;
+  --max-col-width: 234px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--max-col-width), 1fr));
-  gap: var(--clamp-offset);
+  gap: 57px var(--sm-offset);
+  margin-top: 40px;
 
   &__item {
     display: flex;
@@ -10,9 +11,32 @@
     align-items: center;
     text-align: center;
     gap: var(--sm-offset);
+    background-color: var(--background-light);
+    position: relative;
+    padding: 52px 45px 30px 45px;
+    border-radius: var(--main-border-radius-bg);
+    color: var(--primary);
+
+    &:nth-child(odd) {
+      background-color: var(--primary);
+      color: var(--text-white);
+    }
   }
 }
 
 .heading {
   font-size: 24px;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  width: 80px;
+  height: 80px;
+  background-color: var(--primary-accent);
+  position: absolute;
+  top: -40px;
 }
