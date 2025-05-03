@@ -4,17 +4,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; // Расстояние между иконками и текстом
+  @include fluid-text(18, 16);
   padding-inline: 1.5rem;
   height: 100%;
   height: 43px;
-  font-weight: 500;
-  color: var(--text-primary);
-  @include fluid-text(16, 14);
+  font-weight: 700;
+
   cursor: pointer;
-  text-decoration: none; // Убираем подчеркивание для ссылок
+  text-decoration: none;
   transition: opacity var(--main-transition);
   border-radius: 6px;
+  background-color: var(--primary-accent);
+  color: var(--text-white);
+  border: none;
 
   &:hover:not(.disabled):not(.loading) {
     opacity: 0.9;
@@ -30,7 +32,6 @@
 .primary {
   background-color: var(--primary);
   color: var(--text-light);
-  border: none;
 }
 
 .outline {
@@ -97,8 +98,12 @@
 }
 
 .lg {
-  height: 56px;
-  @include fluid-text(20, 16);
+  height: 52px;
+  @include fluid-text(18, 16);
+
+  @media screen and (max-width: 1180px) {
+    height: 48px;
+  }
 }
 
 .icon {

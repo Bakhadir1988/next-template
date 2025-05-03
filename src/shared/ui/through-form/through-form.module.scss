@@ -1,0 +1,33 @@
+.wrapper {
+  padding: 80px 500px 80px 60px;
+  background-color: var(--primary);
+  color: var(--text-white);
+  border-radius: var(--main-border-radius-bg);
+  position: relative;
+  min-height: 488px;
+  background-size: cover;
+
+  @media screen and (max-width: 1080px) {
+    padding: 65px;
+    min-height: auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 30px 20px;
+    text-align: center;
+  }
+}
+
+.content {
+  margin-bottom: 40px;
+}
+
+.image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  @media screen and (max-width: 1080px) {
+    display: none;
+  }
+}

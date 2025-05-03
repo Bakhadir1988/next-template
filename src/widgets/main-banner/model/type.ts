@@ -11,6 +11,7 @@ export type MainBannerItem = {
   buttons: MainBannerItemButtons[];
   title: string;
   image: string;
+  bg_image: string;
   text: string;
   manual_url: string;
   item_id: string;

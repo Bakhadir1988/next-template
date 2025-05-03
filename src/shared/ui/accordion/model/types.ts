@@ -2,10 +2,10 @@ export type AccordionDto = {
   item_id: string;
   title: string;
   content: string;
-  linked_sections: LinkedSection[];
+  linked_sections: AccordionLinkedSection[];
 };
 
-export type LinkedSection = {
+export type AccordionLinkedSection = {
   items: AccordionItem[];
   section: {
     item_id: string;

@@ -14,12 +14,14 @@ type BannerItemProps = {
 export const BannerItem = ({ item }: BannerItemProps) => {
   return (
     <div className={styles.item} key={item.item_id}>
-      <Image
-        src={`https://dev.nmcms.ru/resources/catalog/images/${item.image}`}
-        alt={item.title}
-        priority
-        fill={true}
-      />
+      <div>
+        <Image
+          src={`https://dev.nmcms.ru/resources/catalog/images/${item.bg_image}`}
+          alt={item.title}
+          priority
+          fill={true}
+        />
+      </div>
       <div className={styles.inner}>
         <h1>{item.title}</h1>
         <div

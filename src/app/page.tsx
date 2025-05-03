@@ -1,13 +1,20 @@
 import { getData } from '@/shared/api';
 import { Advantages } from '@/shared/components';
-import { Accordion } from '@/shared/ui/accordion';
-import { LatestNews, MainAbout, MainBanner, ServicesWidget } from '@/widgets';
+import { Accordion, ThroughForm } from '@/shared/ui';
+import {
+  LatestNews,
+  MainAbout,
+  MainBanner,
+  ServicesWidget,
+  WorkPrinciplesWidget,
+} from '@/widgets';
 
 type Block = {
   manual_url: string;
   item_id: string;
   title: string;
   content: string;
+  image: string;
   items_count?: string;
   linked_sections: [];
 };
@@ -26,8 +33,10 @@ function blockRenderer(block: Block) {
       return <ServicesWidget key={block.item_id} data={block} />;
     case 'main_accordion':
       return <Accordion key={block.item_id} data={block} />;
-    // case 'main_clients':
-    //   return <Clients key={block.item_id} data={block} />;
+    case 'main_form':
+      return <ThroughForm key={block.item_id} data={block} />;
+    case 'main_our_work':
+      return <WorkPrinciplesWidget key={block.item_id} data={block} />;
     default:
       return null;
   }

@@ -25,27 +25,31 @@ export const AccordionCard = ({ item, isActive, onClick, index }: Props) => {
     <div
       className={clsx(styles.card, isActive ? styles.active : styles.inactive)}
     >
-      <div className={styles.grid}>
-        <div onClick={onClick} className={styles.title}>
-          <span>{title}</span>
-          <span>{index + 1}</span>
-        </div>
-        {isActive && (
-          <div className={styles.content}>
-            <Image
-              src={`${imagePath}/${image}`}
-              alt="Описание изображения"
-              width={500}
-              height={300}
-            />
-            <span className="base_subtitle">{heading}</span>
-            <div dangerouslySetInnerHTML={{ __html: text || '' }} />
-            {buttons.map((button) => (
-              <React.Fragment key={button.subitem_id}>
-                <Button variant="primary">{button.variant_title}</Button>
-              </React.Fragment>
-            ))}
-          </div>
+      <div onClick={onClick} className={styles.title}>
+        <span className={'base_subtitle'}>{title}</span>
+        <span className={'base_subtitle'}>0{index + 1}</span>
+      </div>
+      <div className={styles.content}>
+        <Image
+          src={`${imagePath}/${image}`}
+          alt={title}
+          width={700}
+          height={300}
+        />
+        <span className="base_subtitle">{heading}</span>
+        <div dangerouslySetInnerHTML={{ __html: text || '' }} />
+        {buttons && buttons.length > 0 ? (
+          buttons.map((button) => (
+            <React.Fragment key={button.subitem_id}>
+              <Button radius="full" size="lg" className={styles.button}>
+                {button.variant_title}
+              </Button>
+            </React.Fragment>
+          ))
+        ) : (
+          <Button radius="full" size="lg" className={styles.button}>
+            Записаться на ремонт
+          </Button>
         )}
       </div>
     </div>

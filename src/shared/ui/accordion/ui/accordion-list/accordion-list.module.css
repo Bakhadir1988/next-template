@@ -2,4 +2,9 @@
   display: flex;
   min-height: 810px;
   gap: 1px;
+
+  @media screen and (max-width: 1180px) {
+    flex-direction: column;
+    min-height: auto;
+  }
 }

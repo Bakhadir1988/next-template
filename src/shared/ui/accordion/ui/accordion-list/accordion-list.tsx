@@ -2,11 +2,11 @@
 
 import React, { useState } from 'react';
 
-import { LinkedSection } from '../../model/types';
+import { AccordionLinkedSection } from '../../model/types';
 import { AccordionCard } from '../accordion-card/accordion-card';
 import styles from './accordion-list.module.css';
 
-export const AccordionList = ({ data }: { data: LinkedSection[] }) => {
+export const AccordionList = ({ data }: { data: AccordionLinkedSection[] }) => {
   const [activeId, setActiveId] = useState<number | null>(0);
 
   const handleToggle = (id: number) => {
