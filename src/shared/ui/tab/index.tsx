@@ -7,7 +7,7 @@ import { useRef, useState } from 'react';
 import { Button } from '@/shared/ui/button';
 
 import styles from './UniversalTabs.module.scss';
-import { TabsDto } from './type';
+import { TabsDto, TabsOrientationEnum } from './type';
 
 export const UniversalTabs = ({
   tabs,

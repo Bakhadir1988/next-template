@@ -1,5 +1,5 @@
 // features/universalTabs/model/types.ts
-enum TabsOrientationEnum {
+export enum TabsOrientationEnum {
   HORIZONTAL = 'horizontal',
   VERTICAL = 'vertical',
 }
@@ -10,11 +10,9 @@ export type TabItem = {
   text: string;
 };
 
-export type TabsOrientation = TabsOrientationEnum;
-
 export type TabsDto = {
   tabs: TabItem[];
-  orientation?: TabsOrientation;
+  orientation?: TabsOrientationEnum;
   title?: string;
   description?: string;
   className?: string;
