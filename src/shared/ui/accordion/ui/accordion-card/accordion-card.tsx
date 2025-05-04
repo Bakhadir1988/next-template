@@ -30,12 +30,14 @@ export const AccordionCard = ({ item, isActive, onClick, index }: Props) => {
         <span className={'base_subtitle'}>0{index + 1}</span>
       </div>
       <div className={styles.content}>
-        <Image
-          src={`${imagePath}/${image}`}
-          alt={title}
-          width={700}
-          height={300}
-        />
+        <div className={styles.image}>
+          <Image
+            src={`${imagePath}/${image}`}
+            alt={title}
+            width={700}
+            height={400}
+          />
+        </div>
         <span className="base_subtitle">{heading}</span>
         <div dangerouslySetInnerHTML={{ __html: text || '' }} />
         {buttons && buttons.length > 0 ? (

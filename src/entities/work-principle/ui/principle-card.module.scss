@@ -1,5 +1,8 @@
 .item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sm-offset);
   background-color: var(--background-light);
   border-radius: var(--main-border-radius-bg);
-  padding: 20px 30px;
+  padding: clamp(var(--sm-offset), 3vw, 30px);
 }

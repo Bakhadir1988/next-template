@@ -38,3 +38,11 @@
     @content;
   }
 }
+
+@mixin clamp($property, $min, $max, $viewport: 1000) {
+  $min-val: strip-unit($min);
+  $max-val: strip-unit($max);
+  // Пересчитываем коэффициент для нужного $vw
+  $vw-coeff: (($max-val - $min-val) / ($viewport / 5)); // теперь 1vw = 5px
+  #{$property}: clamp($min, #{$vw-coeff}vw, $max);
+}

@@ -12,14 +12,14 @@
 
   cursor: pointer;
   text-decoration: none;
-  transition: opacity var(--main-transition);
+  transition: opacity var(--base-transition);
   border-radius: 6px;
   background-color: var(--primary-accent);
   color: var(--text-white);
   border: none;
 
   &:hover:not(.disabled):not(.loading) {
-    opacity: 0.9;
+    opacity: 0.8;
   }
 
   &.disabled,

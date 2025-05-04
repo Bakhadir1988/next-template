@@ -2,16 +2,33 @@
   display: grid;
   grid-template-columns: minmax(300px, 580px) 1fr;
   gap: var(--sm-offset);
+
+  @media screen and (max-width: 1400px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--sm-offset);
+
+  @media screen and (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .image {
   object-fit: cover;
   max-width: 100%;
   border-radius: var(--main-border-radius-bg);
+
+  @media screen and (max-width: 1400px) {
+    order: 1;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    height: auto;
+  }
 }

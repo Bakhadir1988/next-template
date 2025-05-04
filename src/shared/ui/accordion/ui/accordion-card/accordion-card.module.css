@@ -77,17 +77,18 @@
   @media screen and (max-width: 1180px) {
     padding-inline: 0;
   }
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  max-height: 400px;
 
   img {
     max-width: 100%;
+    width: 100%;
     height: auto;
-    margin: 0 auto;
   }
-}
-
-.content img {
-  max-width: 100%;
-  height: auto;
 }
 
 .grid {

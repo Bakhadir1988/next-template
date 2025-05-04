@@ -1,14 +1,23 @@
+import Image from 'next/image';
 import React from 'react';
 
 import { PrincipleCardDto } from '../model/types';
 import styles from './principle-card.module.scss';
 
 export const PrincipleCard = ({ item }: { item: PrincipleCardDto }) => {
-  const { title, text } = item;
+  const { title, text, icon_svg } = item;
+
+  const filePath = process.env.NEXT_PUBLIC_FILES_URL;
+
   return (
     <div className={styles.item}>
-      <div className={styles.icon}></div>
-      <div className={styles.heading}>{title}</div>
+      <Image
+        src={`${filePath}/${icon_svg}`}
+        width={40}
+        height={40}
+        alt={title}
+      />
+      <div className="base_subtitle">{title}</div>
       <div dangerouslySetInnerHTML={{ __html: text }} />
     </div>
   );

@@ -5,6 +5,7 @@ import {
   LatestNews,
   MainAbout,
   MainBanner,
+  MapBlock,
   ServicesWidget,
   WorkPrinciplesWidget,
 } from '@/widgets';
@@ -37,6 +38,8 @@ function blockRenderer(block: Block) {
       return <ThroughForm key={block.item_id} data={block} />;
     case 'main_our_work':
       return <WorkPrinciplesWidget key={block.item_id} data={block} />;
+    case 'main_map':
+      return <MapBlock key={block.item_id} />;
     default:
       return null;
   }
