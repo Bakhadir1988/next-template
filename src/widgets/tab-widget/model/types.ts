@@ -1,5 +1,3 @@
-// features/universalTabs/model/types.ts
-
 export type TabDto = {
   item_id: string;
   title: string;
@@ -17,7 +15,7 @@ export type TabLinkedSection = {
 export type TabItem = {
   item_id: number;
   title: string;
-  text?: string;
+  text: string;
   announce: {
     image: string;
   };
@@ -29,13 +27,3 @@ export type TabItemPrices = {
   price: string;
   variant_title: string;
 };
-
-// export type TabsOrientation = 'horizontal' | 'vertical';
-
-// export interface UniversalTabsProps {
-//   tabs: TabItem[];
-//   orientation?: TabsOrientation;
-//   title?: string;
-//   description?: string;
-//   className?: string;
-// }

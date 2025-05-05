@@ -7,6 +7,7 @@ import {
   MainBanner,
   MapBlock,
   ServicesWidget,
+  TabWidget,
   WorkPrinciplesWidget,
 } from '@/widgets';
 
@@ -40,6 +41,8 @@ function blockRenderer(block: Block) {
       return <WorkPrinciplesWidget key={block.item_id} data={block} />;
     case 'main_map':
       return <MapBlock key={block.item_id} />;
+    case 'main_repair':
+      return <TabWidget key={block.item_id} data={block} />;
     default:
       return null;
   }
