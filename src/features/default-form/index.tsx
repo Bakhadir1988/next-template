@@ -1,11 +1,16 @@
 'use client';
 
+import clsx from 'clsx';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { IMaskInput } from 'react-imask';
 
+import { CheckIcon } from '@/shared/icons/check';
+import { Button } from '@/shared/ui/button';
 import { SkeletonForm } from '@/shared/ui/skeleton-form';
 
+import styles from './default-form.module.scss';
 import { FormDto, FormItem } from './utils/formDataTypes';
 import getFormData from './utils/getFormData';
 import { sendData } from './utils/sendData';
@@ -24,6 +29,8 @@ export const DefaultForm = () => {
   const [loading, setLoading] = useState(true);
   const [error, setErrorState] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  console.log('error', error);
 
   const {
     register,
@@ -91,9 +98,14 @@ export const DefaultForm = () => {
 
   if (isSuccess) {
     return (
-      <div>
-        <h2>Форма успешно отправлена!</h2>
-        <p>Спасибо за ваше сообщение.</p>
+      <div className={styles.success}>
+        <CheckIcon fill="#00B436" />
+        <span className="base_subtitle">
+          Спасибо! <br /> Вы успешно отправили заявку
+        </span>
+        <span>
+          Оставьте свои данные и мы обязательно <br /> свяжемся с вами
+        </span>
       </div>
     );
   }
@@ -109,80 +121,112 @@ export const DefaultForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {formData?.fields?.__nogroup?.props &&
-        Object.values(formData.fields.__nogroup.props).map((item: FormItem) => {
-          if (item.type === 'HIDDEN') {
-            return (
-              <input
-                key={item.prop_id}
-                type="hidden"
-                {...register(item.prop_id)}
-              />
-            );
-          }
+    <div className={styles.root}>
+      <div className={styles.heading}>
+        <strong>Оставьте ваши данные для связи</strong>
+        <span>
+          Оставьте заявку прямо сейчас. Мы перезвоним Вам, рассчитаем стоимость
+          ремонта и предоставим скидку 10%.
+        </span>
+      </div>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.wrapper}>
+          {formData?.fields?.__nogroup?.props &&
+            Object.values(formData.fields.__nogroup.props).map(
+              (item: FormItem) => {
+                if (item.type === 'HIDDEN') {
+                  return (
+                    <input
+                      key={item.prop_id}
+                      type="hidden"
+                      {...register(item.prop_id)}
+                    />
+                  );
+                }
 
-          return (
-            <div key={item.prop_id}>
-              <label>
-                <span>{item.title}</span>
-                {item.type === 'TEXT' ? (
-                  <textarea
-                    {...register(item.prop_id, {
-                      required: item.required === '1',
-                    })}
-                    placeholder={item.title}
-                  />
-                ) : item.type === 'PHONE' ? (
-                  <Controller
-                    name={item.prop_id}
-                    control={control}
-                    rules={{ required: item.required === '1' }}
-                    render={({ field: { onChange } }) => (
-                      <IMaskInput
-                        mask="+7 (000) 000-00-00"
-                        placeholder="+7 (___) ___-__-__"
-                        onAccept={(value) => onChange(value)}
+                return (
+                  <label
+                    className={clsx(
+                      styles.control,
+                      errors[item.prop_id] && styles.errors,
+                      item.type === 'TEXT' && styles.textarea,
+                    )}
+                    key={item.prop_id}
+                  >
+                    {item.type === 'TEXT' ? (
+                      <textarea
+                        {...register(item.prop_id, {
+                          required: item.required === '1',
+                        })}
+                        placeholder={item.title}
+                      />
+                    ) : item.type === 'PHONE' ? (
+                      <Controller
+                        name={item.prop_id}
+                        control={control}
+                        rules={{ required: item.required === '1' }}
+                        render={({ field: { onChange } }) => (
+                          <IMaskInput
+                            mask="+7 (000) 000-00-00"
+                            placeholder="+7 (___) ___-__-__"
+                            onAccept={(value) => onChange(value)}
+                          />
+                        )}
+                      />
+                    ) : item.type === 'EMAIL' ? (
+                      <input
+                        type="email"
+                        {...register(item.prop_id, {
+                          required: item.required === '1',
+                          pattern: {
+                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                            message: 'Неверный формат email',
+                          },
+                        })}
+                        placeholder={item.title}
+                      />
+                    ) : (
+                      <input
+                        {...register(item.prop_id, {
+                          required: item.required === '1',
+                        })}
+                        placeholder={item.title}
                       />
                     )}
-                  />
-                ) : item.type === 'EMAIL' ? (
-                  <input
-                    type="email"
-                    {...register(item.prop_id, {
-                      required: item.required === '1',
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Неверный формат email',
-                      },
-                    })}
-                    placeholder={item.title}
-                  />
-                ) : (
-                  <input
-                    {...register(item.prop_id, {
-                      required: item.required === '1',
-                    })}
-                    placeholder={item.title}
-                  />
-                )}
-              </label>
-              {errors[item.prop_id] && (
-                <span>
-                  {getErrorMessage(
-                    errors[item.prop_id] as FieldError | undefined,
-                  )}
-                </span>
-              )}
-            </div>
-          );
-        })}
-      <small>
-        Заполняя данную форму я даю согласие на обработку персональных данных
-      </small>
-      <button type="submit" disabled={loading || !!error}>
-        Отправить
-      </button>
-    </form>
+                    {errors[item.prop_id] && (
+                      <span>
+                        {getErrorMessage(
+                          errors[item.prop_id] as FieldError | undefined,
+                        )}
+                      </span>
+                    )}
+                  </label>
+                );
+              },
+            )}
+        </div>
+        <div className={styles.checkbox_wrapper}>
+          <small className={styles.checkbox}>
+            <input type="checkbox" id="policy" name="policy" />
+            <label htmlFor="policy">
+              <span className={styles.icon}>
+                <span className={styles.checkmark}></span>
+              </span>
+            </label>
+          </small>
+          <Link href="/privacy-policy">
+            Согласен на обработку персональных данных
+          </Link>
+        </div>
+        <Button
+          radius="full"
+          size="lg"
+          type="submit"
+          disabled={loading || !!error}
+        >
+          Записаться на ремонт
+        </Button>
+      </form>
+    </div>
   );
 };

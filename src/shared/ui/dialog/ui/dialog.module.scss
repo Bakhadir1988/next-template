@@ -1,0 +1,72 @@
+@use 'mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+  }
+}
+
+.content {
+  background-color: var(--primary);
+  border-radius: 12px;
+  padding: 24px;
+  min-width: 300px;
+  max-width: 600px;
+  min-width: 600px;
+  max-height: 100%;
+  min-height: 266px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  overflow: inherit;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  color: var(--text-white);
+  border-radius: var(--main-border-radius-bg);
+  background-repeat: no-repeat;
+  @include media-down(767px) {
+    max-width: 90vw;
+    min-width: 90vw;
+    padding: 15px;
+  }
+}
+
+.close {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text-white);
+  font-size: 62px;
+  border-radius: 100px;
+  position: absolute;
+  top: -30px;
+  right: -20px;
+  border: none;
+  cursor: pointer;
+
+  @include media-down(767px) {
+    top: -13px;
+    right: -13px;
+    width: 35px;
+    height: 35px;
+    font-size: 32px;
+  }
+}

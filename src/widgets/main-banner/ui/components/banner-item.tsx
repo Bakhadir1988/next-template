@@ -1,8 +1,11 @@
+'use client';
+
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { DefaultForm } from '@/features/default-form';
-import { UiModal } from '@/shared/ui/modal';
+import { Dialog } from '@/shared/ui';
+import { Button } from '@/shared/ui/button';
 
 import { MainBannerItem } from '../../model/type';
 import styles from './banner-item.module.scss';
@@ -12,6 +15,7 @@ type BannerItemProps = {
 };
 
 export const BannerItem = ({ item }: BannerItemProps) => {
+  const [open, setOpen] = useState(false);
   return (
     <div className={styles.item} key={item.item_id}>
       <Image
@@ -31,9 +35,23 @@ export const BannerItem = ({ item }: BannerItemProps) => {
         {item.buttons && (
           <div className={styles.buttons}>
             {item.buttons.map((button) => (
-              <UiModal key={button.subitem_id} text={button.variant_title}>
-                <DefaultForm />
-              </UiModal>
+              <React.Fragment key={button.subitem_id}>
+                <Button
+                  variant="primary"
+                  radius="lg"
+                  size="lg"
+                  onClick={() => setOpen(true)}
+                >
+                  {button.variant_title}
+                </Button>
+                <Dialog
+                  open={open}
+                  onClose={() => setOpen(false)}
+                  animation="scale"
+                >
+                  <DefaultForm />
+                </Dialog>
+              </React.Fragment>
             ))}
           </div>
         )}

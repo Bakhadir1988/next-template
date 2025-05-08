@@ -1,0 +1,163 @@
+@use 'mixins' as *;
+
+.root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  gap: var(--sm-offset);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2vw, var(--sm-offset));
+
+  strong {
+    padding: 0 50px;
+    @include fluid-text(36, 20);
+  }
+
+  span {
+    @include fluid-text(18, 14);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--sm-offset) - 10px);
+  width: 100%;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: calc(var(--sm-offset) - 5px);
+  width: 100%;
+
+  @include media-down(767px) {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+
+  @include media-down(767px) {
+    width: 100%;
+  }
+
+  textarea,
+  input {
+    border-radius: var(--main-border-radius-bg);
+    padding: 17px 30px;
+
+    &::placeholder {
+      color: #8d8d8d;
+    }
+  }
+
+  span {
+    color: #e73434;
+  }
+}
+
+.textarea {
+  grid-area: 3 / span 2;
+
+  textarea {
+    min-height: 112px;
+  }
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  padding: 0;
+
+  &_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    @include media-down(767px) {
+      text-align: left;
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked {
+      + label {
+        .icon {
+          background-color: var(--primary-accent);
+        }
+
+        .checkmark {
+          display: block;
+        }
+      }
+    }
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  &:hover .icon {
+    background-color: var(--primary-accent);
+
+    .checkmark {
+      display: block;
+    }
+  }
+}
+
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.checkmark {
+  position: absolute;
+  left: 6px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: none;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 2vw, var(--sm-offset));
+}
