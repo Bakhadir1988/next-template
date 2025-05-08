@@ -33,7 +33,7 @@
 
 .info {
   display: grid;
-  grid-template-columns: 6fr 1fr;
+  grid-template-columns: 1;
   position: relative;
   z-index: 1;
 
@@ -44,6 +44,10 @@
   @include media-down(767px) {
     grid-template-columns: 1fr;
   }
+}
+
+.grid {
+  grid-template-columns: 6fr 1fr;
 }
 
 .inner {

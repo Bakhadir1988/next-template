@@ -1,10 +1,7 @@
 export type AdvantagesDto = {
   title: string;
   content?: string;
-  items_count?: string;
-  linked_sections: {
-    items: AdvantagesItems[];
-  }[];
+  items: AdvantagesItems[];
 };
 
 type AdvantagesItems = {

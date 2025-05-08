@@ -25,7 +25,7 @@ function blockRenderer(block: Block) {
   switch (block.manual_url) {
     case 'banner':
       return <MainBanner key={block.item_id} data={block} />;
-    case 'main_advantages':
+    case 'advantages':
       return <Advantages key={block.item_id} data={block} />;
     case 'main_about':
       return <MainAbout key={block.item_id} data={block} />;
@@ -33,7 +33,7 @@ function blockRenderer(block: Block) {
       return <LatestNews key={block.item_id} data={block} />;
     case 'main_services':
       return <ServicesWidget key={block.item_id} data={block} />;
-    case 'main_accordion':
+    case 'accordion':
       return <Accordion key={block.item_id} data={block} />;
     case 'main_form':
       return <ThroughForm key={block.item_id} data={block} />;
