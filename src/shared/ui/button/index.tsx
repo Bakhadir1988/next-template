@@ -22,7 +22,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: React.FC<ButtonProps> = ({
   href,
   variant = 'default',
-  size = 'default',
+  size = 'lg',
   isLoading = false,
   iconLeft,
   iconRight,
@@ -30,7 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   disabled,
   onClick,
-  radius,
+  radius = 'full',
   type = 'button', // Устанавливаем значение по умолчанию
   ...props
 }) => {

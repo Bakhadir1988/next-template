@@ -1,0 +1,15 @@
+@use 'mixins' as *;
+
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sm-offset);
+
+  @include media-down(550px) {
+    width: 100%;
+  }
+
+  button {
+    flex-grow: 1;
+  }
+}

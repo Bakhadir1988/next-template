@@ -1,24 +1,20 @@
 export type MainBannerDto = {
   title: string;
   content?: string;
-  items_count?: string;
-  linked_sections: {
-    items: MainBannerItem[];
-  }[];
+  items: MainBannerItem[];
 };
 
 export type MainBannerItem = {
-  buttons: MainBannerItemButtons[];
-  title: string;
+  button: MainBannerItemButton;
   image: string;
-  bg_image: string;
-  text: string;
-  manual_url: string;
+  image_bg: string;
   item_id: string;
+  text: string;
+  title: string;
 };
 
-export type MainBannerItemButtons = {
-  subitem_id: string;
-  variant_title: string;
-  url: string;
+export type MainBannerItemButton = {
+  title: string;
+  url?: string;
+  variant?: string;
 };

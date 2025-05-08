@@ -12,18 +12,18 @@ import {
 } from '@/widgets';
 
 type Block = {
-  manual_url: string;
-  item_id: string;
   title: string;
   content: string;
+  manual_url: string;
+  item_id: string;
+  items: [];
   image: string;
-  items_count?: string;
   linked_sections: [];
 };
 
 function blockRenderer(block: Block) {
   switch (block.manual_url) {
-    case 'main_banner':
+    case 'banner':
       return <MainBanner key={block.item_id} data={block} />;
     case 'main_advantages':
       return <Advantages key={block.item_id} data={block} />;
@@ -49,7 +49,7 @@ function blockRenderer(block: Block) {
 }
 
 export default async function Home() {
-  const data = await getData('home-page');
+  const data = await getData('/api/');
 
   if (!data.blocks) return <div>Блоки не найдены</div>;
 
