@@ -1,6 +1,5 @@
 import { NewsItemDto, NewsSectionDto } from '@/entities/news/model/types';
 import { NewsDetail } from '@/entities/news/ui/news-detail';
-import { LatestNews } from '@/widgets';
 
 type Props = {
   data: NewsItemDto;
@@ -8,11 +7,10 @@ type Props = {
   path: NewsSectionDto;
 };
 
-export const NewsDetailView = ({ data, relatedNews, path }: Props) => {
+export const NewsDetailView = ({ data, path }: Props) => {
   return (
     <main>
       <NewsDetail data={data} path={path} />
-      <LatestNews items={relatedNews} excludeId={data.item_id} />
     </main>
   );
 };

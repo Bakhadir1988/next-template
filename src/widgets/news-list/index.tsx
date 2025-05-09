@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { NewsItemDto } from '@/entities/news/model';
-import { NewsItem } from '@/shared/components';
+import { NewsItem } from '@/entities/news/ui/news-item';
 
 import styles from './news-list.module.scss';
 

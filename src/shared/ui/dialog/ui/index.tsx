@@ -106,7 +106,7 @@ export const Dialog = ({
             transition={{ duration, ease: 'easeOut' }}
             tabIndex={-1}
             ref={ref}
-            style={{ backgroundImage: "url('/form_bg.svg')" }}
+            style={{ backgroundImage: 'url(/form_bg.svg)' }}
           >
             <button
               className={styles.close}
