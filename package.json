@@ -12,6 +12,7 @@
     "generate-icons": "node './src/lib/generate-icons.js'"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
     "@hookform/resolvers": "^3.10.0",
     "@mantine/core": "^7.14.1",
     "@mantine/hooks": "^7.14.1",

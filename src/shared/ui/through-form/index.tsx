@@ -2,12 +2,11 @@ import Image from 'next/image';
 import React from 'react';
 
 import { Button } from '../button';
-import bgImage from './../../assets/form_bg.png';
 import styles from './through-form.module.scss';
 import { ThroughFormDto } from './types';
 
 export const ThroughForm = ({ data }: { data: ThroughFormDto }) => {
-  const { title, image, content } = data;
+  const { title, image, text } = data;
 
   const imagePath = process.env.NEXT_PUBLIC_IMAGE_URL;
 
@@ -15,14 +14,16 @@ export const ThroughForm = ({ data }: { data: ThroughFormDto }) => {
     <section className="base_section">
       <div className="container">
         <div
-          style={{ backgroundImage: `url(${bgImage.src})` }}
+          style={{ backgroundImage: 'url("/form_bg.png")' }}
           className={styles.wrapper}
         >
           <h2>{title}</h2>
-          <div
-            className={styles.content}
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
+          {text && (
+            <div
+              className={styles.content}
+              dangerouslySetInnerHTML={{ __html: text }}
+            />
+          )}
           <div className={styles.image}>
             <Image
               src={`${imagePath}/${image}`}
@@ -31,9 +32,7 @@ export const ThroughForm = ({ data }: { data: ThroughFormDto }) => {
               height={527}
             />
           </div>
-          <Button radius="full" size="lg">
-            Записаться на ремонт
-          </Button>
+          <Button>Записаться на ремонт</Button>
         </div>
       </div>
     </section>

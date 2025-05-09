@@ -1,9 +1,7 @@
-'use client';
-
 import React from 'react';
 
 import { MainBannerDto } from '../model/type';
-import { BannerItem } from './components/banner-item/banner-item';
+import { BannerItem } from './banner-item';
 import styles from './main-banner.module.scss';
 
 export const MainBanner = ({ data }: { data: MainBannerDto }) => {

@@ -1,24 +1,22 @@
 import { getData } from '@/shared/api';
-import { Advantages } from '@/shared/components';
-import { Accordion, ThroughForm } from '@/shared/ui';
+import { Accordion, Advantages, ThroughForm } from '@/shared/ui';
 import {
-  LatestNews,
-  MainAbout,
+  About,
   MainBanner,
   MapBlock,
-  ServicesWidget,
   TabWidget,
   WorkPrinciplesWidget,
 } from '@/widgets';
 
 type Block = {
   title: string;
-  content: string;
+  text: string;
   manual_url: string;
   item_id: string;
   items: [];
   image: string;
-  linked_sections: [];
+  slider: string[];
+  sections: [];
 };
 
 function blockRenderer(block: Block) {
@@ -27,22 +25,18 @@ function blockRenderer(block: Block) {
       return <MainBanner key={block.item_id} data={block} />;
     case 'advantages':
       return <Advantages key={block.item_id} data={block} />;
-    case 'main_about':
-      return <MainAbout key={block.item_id} data={block} />;
-    case 'main_news':
-      return <LatestNews key={block.item_id} data={block} />;
-    case 'main_services':
-      return <ServicesWidget key={block.item_id} data={block} />;
+    case 'repair':
+      return <TabWidget key={block.item_id} data={block} />;
+    case 'about':
+      return <About key={block.item_id} data={block} />;
     case 'accordion':
       return <Accordion key={block.item_id} data={block} />;
-    case 'main_form':
-      return <ThroughForm key={block.item_id} data={block} />;
-    case 'main_our_work':
+    case 'our_work':
       return <WorkPrinciplesWidget key={block.item_id} data={block} />;
-    case 'main_map':
+    case 'form':
+      return <ThroughForm key={block.item_id} data={block} />;
+    case 'map':
       return <MapBlock key={block.item_id} />;
-    case 'main_repair':
-      return <TabWidget key={block.item_id} data={block} />;
     default:
       return null;
   }

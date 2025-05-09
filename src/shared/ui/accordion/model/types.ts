@@ -1,15 +1,8 @@
 export type AccordionDto = {
   item_id: string;
   title: string;
-  content: string;
-  linked_sections: AccordionLinkedSection[];
-};
-
-export type AccordionLinkedSection = {
+  text: string;
   items: AccordionItem[];
-  section: {
-    item_id: string;
-  };
 };
 
 export type AccordionItem = {

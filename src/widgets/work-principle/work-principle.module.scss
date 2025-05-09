@@ -1,4 +1,7 @@
 .content {
+}
+
+.grid {
   display: grid;
   grid-template-columns: minmax(300px, 580px) 1fr;
   gap: var(--sm-offset);
@@ -21,6 +24,7 @@
 .image {
   object-fit: cover;
   max-width: 100%;
+  width: 100%;
   border-radius: var(--main-border-radius-bg);
 
   @media screen and (max-width: 1400px) {

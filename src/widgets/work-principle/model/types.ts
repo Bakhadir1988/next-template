@@ -2,15 +2,8 @@ export type WorkPrincipleDto = {
   item_id: string;
   title: string;
   image: string;
-  content: string;
-  linked_sections: WorkPrincipleSection[];
-};
-
-export type WorkPrincipleSection = {
+  text: string;
   items: WorkPrincipleItem[];
-  section: {
-    item_id: string;
-  };
 };
 
 export type WorkPrincipleItem = {

@@ -1,0 +1,30 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--sm-offset);
+  position: relative;
+  margin-bottom: var(--base-offset);
+  align-items: flex-start;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.separate {
+  align-items: center;
+  text-align: center;
+  padding-bottom: var(--base-offset);
+  &::after {
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    content: '';
+    transform: translateX(-50%);
+    width: 160px;
+    max-width: 30vw;
+    height: 4px;
+    background-color: var(--primary);
+  }
+}

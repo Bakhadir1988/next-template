@@ -1,7 +1,7 @@
 .item {
   display: flex;
   flex-direction: column;
-  gap: var(--sm-offset);
+  gap: calc(var(--sm-offset) - 7px);
   background-color: var(--background-light);
   border-radius: var(--main-border-radius-bg);
   padding: clamp(var(--sm-offset), 3vw, 30px);

@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
 
@@ -7,32 +8,30 @@ import { WorkPrincipleDto } from './model/types';
 import styles from './work-principle.module.scss';
 
 export const WorkPrinciplesWidget = ({ data }: { data: WorkPrincipleDto }) => {
-  const { title, content, image, linked_sections } = data;
-
-  const imagePath = process.env.NEXT_PUBLIC_IMAGE_URL;
+  const { title, text, image, items } = data;
 
   return (
     <section className="base_section">
       <div className="container">
         <div className="base_title">
           <h2>{title}</h2>
-          {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
+          {text && <div dangerouslySetInnerHTML={{ __html: text }} />}
         </div>
 
-        <div className={styles.content}>
-          <Image
-            className={styles.image}
-            src={`${imagePath}/${image}`}
-            width={580}
-            height={580}
-            alt={title}
-          />
+        <div className={clsx(image ? styles.grid : null)}>
+          {image && (
+            <Image
+              className={styles.image}
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${image}`}
+              width={580}
+              height={580}
+              alt={title}
+            />
+          )}
           <div className={styles.list}>
-            {linked_sections.map((sections) => (
-              <React.Fragment key={sections.section.item_id}>
-                {sections.items.map((item) => (
-                  <PrincipleCard key={item.item_id} item={item} />
-                ))}
+            {items.map((item) => (
+              <React.Fragment key={item.item_id}>
+                <PrincipleCard item={item} />
               </React.Fragment>
             ))}
           </div>

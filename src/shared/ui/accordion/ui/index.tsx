@@ -1,20 +1,35 @@
-import React from 'react';
+'use client';
 
+import React, { useState } from 'react';
+
+import { Title } from '../../title';
 import { AccordionDto } from '../model/types';
-import { AccordionList } from './accordion-list/accordion-list';
+import { AccordionCard } from './accordion-card/accordion-card';
+import styles from './accordion.module.scss';
 
 export const Accordion = ({ data }: { data: AccordionDto }) => {
-  const { title, content, linked_sections } = data;
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+
+  const { title, text, items } = data;
 
   return (
     <section className={'base_section'}>
       <div className="container">
-        <div className="base_title">
-          <h2>{title}</h2>
-          {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
-        </div>
+        <Title title={title} text={text} />
 
-        <AccordionList data={linked_sections} />
+        <div className={styles.root}>
+          {items.map((item, index) => (
+            <AccordionCard
+              key={item.item_id}
+              item={item}
+              index={index}
+              isActive={activeIndex === index}
+              onToggle={() =>
+                setActiveIndex(activeIndex === index ? null : index)
+              }
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

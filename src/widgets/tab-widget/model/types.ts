@@ -1,8 +1,8 @@
 export type TabDto = {
   item_id: string;
   title: string;
-  content: string;
-  linked_sections: TabLinkedSection[];
+  text: string;
+  sections: TabLinkedSection[];
 };
 
 export type TabLinkedSection = {

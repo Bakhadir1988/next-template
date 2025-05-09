@@ -1,14 +1,29 @@
+@use 'mixins' as *;
+
 .root {
-  margin-bottom: var(--base-offset);
   width: 100%;
+  height: 100%;
   overflow: hidden;
+  border-radius: var(--main-border-radius-bg);
 }
 
 .controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: var(--main-border-radius-bg);
+  z-index: 10;
+  padding: 12px clamp(20px, 2vw, 40px);
+
+  @include media-down(440px) {
+    border-radius: 0;
+  }
 
   .pagination {
     left: 0;
@@ -16,14 +31,12 @@
     top: 0;
     bottom: 0;
     margin: 0;
+
+    @include media-down(440px) {
+      justify-content: center;
+    }
   }
 }
-
-// .item {
-//   width: 100%;
-//   height: auto;
-// }
-
 .pagination {
   display: flex;
   position: relative;
@@ -37,7 +50,11 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: var(--sm-offset);
+  gap: calc(var(--sm-offset) - 5px);
+
+  @include media-down(440px) {
+    display: none;
+  }
 }
 
 .button {
@@ -54,6 +71,8 @@
   top: 0;
   bottom: 0;
   margin: 0;
+  transition: opacity var(--base-transition);
+
   svg {
     width: initial;
     height: initial;
@@ -67,5 +86,9 @@
 
   &_prev {
     transform: rotate(180deg);
+  }
+
+  &:hover {
+    opacity: 0.8;
   }
 }

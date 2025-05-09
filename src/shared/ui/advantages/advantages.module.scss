@@ -1,0 +1,7 @@
+.root {
+  --max-col-width: 234px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--max-col-width), 1fr));
+  gap: 57px var(--sm-offset);
+  margin-top: 40px;
+}

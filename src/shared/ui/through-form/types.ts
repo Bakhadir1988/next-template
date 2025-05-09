@@ -1,6 +1,6 @@
 export type ThroughFormDto = {
   item_id: string;
   title: string;
-  content: string;
+  text: string;
   image: string;
 };

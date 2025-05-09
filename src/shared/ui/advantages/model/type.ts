@@ -1,10 +1,10 @@
 export type AdvantagesDto = {
   title: string;
   content?: string;
-  items: AdvantagesItems[];
+  items: AdvantagesItemDto[];
 };
 
-type AdvantagesItems = {
+export type AdvantagesItemDto = {
   title: string;
   icon_svg: string;
   text: string;

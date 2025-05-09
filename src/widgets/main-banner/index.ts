@@ -1,1 +1,1 @@
-export * from './ui/main-banner';
+export * from './ui';

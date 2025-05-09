@@ -7,12 +7,10 @@ import styles from './principle-card.module.scss';
 export const PrincipleCard = ({ item }: { item: PrincipleCardDto }) => {
   const { title, text, icon_svg } = item;
 
-  const filePath = process.env.NEXT_PUBLIC_FILES_URL;
-
   return (
     <div className={styles.item}>
       <Image
-        src={`${filePath}/${icon_svg}`}
+        src={`${process.env.NEXT_PUBLIC_FILES_URL}${icon_svg}`}
         width={40}
         height={40}
         alt={title}

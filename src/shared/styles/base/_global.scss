@@ -113,7 +113,7 @@ ul {
     justify-content: center;
     gap: var(--sm-offset);
     position: relative;
-    margin-bottom: var(--clamp-offset);
+    margin-bottom: var(--base-offset);
     align-items: flex-start;
 
     &__separate {
@@ -197,6 +197,10 @@ ul {
   background: var(--primary);
   opacity: 1;
 }
+
+// .swiper-slide {
+//   width: 100% !important;
+// }
 
 .breadcrumbs {
   a {

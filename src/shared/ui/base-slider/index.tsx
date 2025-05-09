@@ -25,14 +25,12 @@ export const BaseSlider = <T,>({
   navigation = true,
   pagination = true,
   loop = true,
-  className,
 }: BaseSliderProps<T>) => {
   const navigationPrevRef = useRef<HTMLDivElement>(null);
   const navigationNextRef = useRef<HTMLDivElement>(null);
   const paginationRef = useRef<HTMLDivElement>(null);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
-  // Проверка: нужно ли показывать элементы управления
   const shouldShowControls = data.length > slidesPerView;
 
   useEffect(() => {
@@ -74,18 +72,18 @@ export const BaseSlider = <T,>({
         spaceBetween={spaceBetween}
         onSwiper={setSwiperInstance}
         loop={loop}
-        className={clsx(className, styles.root)}
+        className={styles.root}
         breakpoints={{
           0: {
             slidesPerView: slidesPerViewXs || 1,
             spaceBetween: 10,
           },
           640: {
-            slidesPerView: slidesPerViewSm || 2,
+            slidesPerView: slidesPerViewSm || 1,
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: slidesPerViewMd || 3,
+            slidesPerView: slidesPerViewMd || 1,
             spaceBetween: 20,
           },
           1280: {
@@ -117,7 +115,7 @@ export const BaseSlider = <T,>({
                 styles.button,
               )}
             >
-              <SliderArrowIcon width={8} height={12} fill="#d8a47a" />
+              <SliderArrowIcon width={8} height={12} />
             </div>
             <div
               ref={navigationNextRef}
@@ -127,7 +125,7 @@ export const BaseSlider = <T,>({
                 styles.button,
               )}
             >
-              <SliderArrowIcon width={8} height={12} fill="#d8a47a" />
+              <SliderArrowIcon width={8} height={12} />
             </div>
           </div>
         </div>

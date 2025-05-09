@@ -1,9 +1,0 @@
-// export { PopularSections } from './popular-sections';
-// export { LatestNews } from './latest-news';
-export { MainBanner } from '../../widgets/main-banner';
-export { Advantages } from './advantages';
-export { MainAbout } from '../../widgets/main-about';
-export { Clients } from './clients';
-export { Header } from '../../widgets/header';
-export { Footer } from '../../widgets/footer';
-export { NewsItem } from '../../entities/news/ui/news-item';

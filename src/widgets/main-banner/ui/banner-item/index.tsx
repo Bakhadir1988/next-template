@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
 
-import { MainBannerItem } from '../../../model/type';
+import { MainBannerItem } from '../../model/type';
 import { BannerButton } from '../banner-button';
 import styles from './banner-item.module.scss';
 
