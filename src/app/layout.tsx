@@ -69,10 +69,12 @@ export default function RootLayout({
       </head>
       <body className={manrope.className}>
         <MantineProvider>
-          <Header />
-          {children}
-          <Footer />
-          <ToastContainer />
+          <div className="wrapper">
+            <Header />
+            {children}
+            <Footer />
+            <ToastContainer />
+          </div>
         </MantineProvider>
       </body>
     </html>
