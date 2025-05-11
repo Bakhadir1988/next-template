@@ -24,7 +24,7 @@ interface FormDataValues {
   [key: string]: string | number | boolean;
 }
 
-export const DefaultForm = () => {
+export const DefaultForm = ({ form }: { form: string }) => {
   const [formData, setFormData] = useState<FormDto | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setErrorState] = useState<string | null>(null);
@@ -44,7 +44,9 @@ export const DefaultForm = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getFormData('https://dev.nmcms.ru/api/form-data');
+        const data = await getFormData(
+          `${process.env.NEXT_PUBLIC_FORMS_URL}${form}/`,
+        );
         setFormData(data);
       } catch (err) {
         console.error('Ошибка загрузки данных:', err);
@@ -55,7 +57,7 @@ export const DefaultForm = () => {
     };
 
     fetchData();
-  }, []);
+  }, [form]);
 
   const onSubmit: SubmitHandler<FormDataValues> = async (data) => {
     try {

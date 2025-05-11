@@ -17,7 +17,7 @@ export const BannerButton = ({ button }: { button: MainBannerItemButton }) => {
     <div className={styles.root}>
       <Button onClick={() => setOpen(true)}>{title}</Button>
       <Dialog open={open} onClose={() => setOpen(false)} animation="scale">
-        <DefaultForm />
+        <DefaultForm form={'callfor'} />
       </Dialog>
     </div>
   );

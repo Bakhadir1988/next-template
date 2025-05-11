@@ -4,7 +4,7 @@
   "trailingComma": "all",
   "singleQuote": true,
   "semi": true,
-  "endOfLine": "auto",
+  "endOfLine": "lf",
   "importOrder": ["^@/(.*)$", "^[./]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
