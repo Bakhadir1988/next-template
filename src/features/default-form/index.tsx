@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { IMaskInput } from 'react-imask';
 
+import { ErrorIcon } from '@/shared/icons';
 import { CheckIcon } from '@/shared/icons/check';
 import { Button } from '@/shared/ui/button';
 import { SkeletonForm } from '@/shared/ui/skeleton-form';
@@ -95,7 +96,15 @@ export const DefaultForm = ({ form }: { form: string }) => {
   }
 
   if (error) {
-    return <div>Ошибка: {error}</div>;
+    return (
+      <div className={styles.success}>
+        <ErrorIcon fill="#DF2A2A" />
+        <span className="base_subtitle">
+          Ошибка! <br /> {error}
+        </span>
+        <span>Перезагрузите страницу и попробуйте снова!</span>
+      </div>
+    );
   }
 
   if (isSuccess) {

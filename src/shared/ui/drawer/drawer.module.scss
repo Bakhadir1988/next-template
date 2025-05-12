@@ -1,41 +1,30 @@
-.drawer {
+.root {
   position: fixed;
+  padding: 20px;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: #fff;
-  width: 90%;
-  max-width: 400px;
-  height: 100%;
-  margin: 0 auto;
+  background: white;
+  width: 100%;
+  height: auto;
+  border-radius: 12px 12px 0 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 8px 8px 0 0;
   overflow-y: auto;
-  will-change: transform, opacity;
-  pointer-events: auto;
-}
-
-.swipeIndicator {
-  width: 60px;
-  height: 5px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  margin: 16px auto 0 auto;
-  cursor: grab;
-  pointer-events: auto;
-  z-index: 1001;
-  position: relative;
 }
 
 .backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  inset: 0;
   z-index: 999;
-  pointer-events: auto;
-  will-change: opacity;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.swipe_indicator {
+  width: 60px;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin: 16px auto 8px;
+  cursor: grab;
 }

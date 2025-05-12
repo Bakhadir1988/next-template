@@ -5,8 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import './drawer.css';
-
-// подключаем стили
+import styles from './drawer.module.scss';
 
 interface DrawerProps {
   isOpen: boolean;
@@ -88,7 +87,7 @@ export const Drawer: React.FC<DrawerProps> = ({
       {isOpen && (
         <>
           <motion.div
-            className="drawer-backdrop"
+            className={styles.backdrop}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -96,15 +95,15 @@ export const Drawer: React.FC<DrawerProps> = ({
             onClick={onClose}
           />
           <motion.div
-            className="drawer"
+            className={styles.root}
             {...animation}
             drag="y"
             dragConstraints={{ top: 0, bottom: 0 }}
             dragMomentum={true}
             onDragEnd={handleDragEnd}
           >
-            <div className="drawer-swipe-indicator" />
-            {children}
+            <div className={styles.swipe_indicator} />
+            <div className="container">{children}</div>
           </motion.div>
         </>
       )}
